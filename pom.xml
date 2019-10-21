@@ -317,7 +317,9 @@
 				<version>${mybatis-generator-version}</version>
 			</dependency>
 		</dependencies>
-	</plugin>  
-    </plugins>
+	</plugin>
+	
+	</plugins>
+	
   </build>
 </project>
