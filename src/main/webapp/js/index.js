@@ -1,8 +1,4 @@
-/**
- * 
- */
 // 切换登录
-jhkn;
 function goLogin() {
 	$(".loginForm").css("display", "block");
 	$(".registerForm").css("display", "none");
@@ -16,3 +12,11 @@ function goRegister() {
 	$(".register").addClass("colorRed");
 	$(".login").removeClass("colorRed");
 }
+
+function goTest(){
+	alert("test");
+}
+function formChange(){
+	alert("div");
+}
+	
