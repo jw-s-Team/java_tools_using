@@ -5,18 +5,18 @@ package com.jw.service.serviceImpl;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import com.jw.dao.UserDao;
+import com.jw.mapper.UserMapper;
 import com.jw.pojo.User;
 import com.jw.service.UserService;
-import com.mysql.cj.Constants;
 
+@Service
 public class UserServiceImpl implements UserService {
 	@Autowired
-	UserDao userDao;
+	UserMapper userDao;
 
 	@Override
 	public User doLogin(String userName, String password) {

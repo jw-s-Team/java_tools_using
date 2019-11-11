@@ -20,7 +20,7 @@ public class UserController {
 		User user=userService.doLogin(userName,password);
 		if(user==null){
 			request.setAttribute("error", "用户名或密码错误");
-			return "index";
+			return "error";
 		}
 		return "welcome";
 	}

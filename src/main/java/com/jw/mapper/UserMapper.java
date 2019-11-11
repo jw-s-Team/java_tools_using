@@ -1,8 +1,8 @@
-package com.jw.dao;
+package com.jw.mapper;
 
 import com.jw.pojo.User;
 
-public interface UserDao {
+public interface UserMapper {
 	public User createUser(User user);
 
 	public User getUserByName(String userName);

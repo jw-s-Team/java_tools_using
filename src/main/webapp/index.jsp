@@ -7,7 +7,7 @@
 </head>
 <body>
 <form action="${pageContext.request.contextPath}/user/login">
-	用户名<input name="name" type="text"/>
+	用户名<input name="userName" type="text"/>
 	密码<input name="password" type="text"/>
 	<input type="submit" value="登录"/>
 </form>

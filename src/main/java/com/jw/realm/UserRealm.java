@@ -19,7 +19,8 @@ public class UserRealm extends AuthorizingRealm{
 	//获取授权信息
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-		
+		String userName=(String) principals.getPrimaryPrincipal();
+		SimpleAuthenticationInfo authenticationInfo=new SimpleAuthenticationInfo();		
 		return null;
 	}
 

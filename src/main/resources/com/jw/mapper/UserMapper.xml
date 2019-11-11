@@ -3,7 +3,7 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.jw.mapper.UserDao">
+<mapper namespace="com.jw.mapper.UserMapper">
 	
     <select id="getUserByName"  parameterType="string" resultType="com.jw.pojo.User">
         select * from table_user where username = #{0}
