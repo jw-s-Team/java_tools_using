@@ -17,7 +17,7 @@ public class UserController {
 	@RequestMapping(value="/login")
     public String login(String userName, String password,HttpServletRequest request) {
 		User user=userService.doLogin(userName, password);
-		if(user==null){
+		if(user==null){ 
 			request.setAttribute("error", "用户名或密码错误");
 			return "error";
 		}
