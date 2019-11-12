@@ -24,7 +24,8 @@ public class UserServiceImpl implements UserService {
 		UsernamePasswordToken token=new UsernamePasswordToken(userName, password);//存储当前用户信息
 		try {
 			subject.login(token);//进入subject的login:调用UserRealm.doGetAuthenticationInfo方法
-			System.out.println("success");
+			User user=getUserByName(userName);
+			return user;
 		} catch (AuthenticationException e) {
 			e.printStackTrace();
 		}

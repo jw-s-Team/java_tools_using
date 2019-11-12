@@ -48,7 +48,7 @@
 		<property name="credentialsMatcher">
             <bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
                 <property name="hashAlgorithmName" value="MD5"></property> <!-- 加密算法的名称 -->
-                <property name="hashIterations" value="1024"></property> <!-- 配置加密的次数 -->
+                <!--<property name="hashIterations" value="1024"></property>--> <!-- 配置加密的次数 -->
             </bean>
         </property>
 	</bean>

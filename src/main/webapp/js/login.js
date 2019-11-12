@@ -85,8 +85,8 @@ function doLogin(){
 	var code2 = $(".box1 .authCode").text().toLowerCase();
 	var test=code1!=""&&code1 != code2;
 	console.log(test);
-	if(code1!=""&&code1 != code2) {
+	/*if(code1!=""&&code1 != code2) {
 		$('.box1 .photokey').addClass("errorInput");
 		$('.box1 .photokey').next().next().css("display", "block").html("验证码输入错误！");
-	} 
+	}*/
 }

@@ -20,15 +20,15 @@
 	<!-- 具体信息 -->
 	<div  >
 		<!-- 登录界面 -->
-		<form class="loginForm" onsubmit="doLogin()">
+		<form action="user/login" class="loginForm" onsubmit="doLogin()">
 			<ul class="box box1">
 				<li>
-					<label for="account">账号</label>
-					<input type="text" placeholder="请输入您的账号" class="account" id="account" required oninvalid="setCustomValidity('请输入账号');" oninput="setCustomValidity('');"/>
+					<label for="userName">账号</label>
+					<input type="text" placeholder="请输入您的账号" class="userName" name="userName" id="userName" required oninvalid="setCustomValidity('请输入账号');" oninput="setCustomValidity('');"/>
 				</li>
 				<li>
 					<label for="password">密码</label>
-					<input type="password" class="password" id="password" placeholder="请输入密码" required oninvalid="setCustomValidity('请输入密码');" oninput="setCustomValidity('');"//>
+					<input type="password" class="password" id="password" name="password" placeholder="请输入密码" required oninvalid="setCustomValidity('请输入密码');" oninput="setCustomValidity('');"//>
 				</li>
 				<li>
 					<label for="authCode">验证码</label>
