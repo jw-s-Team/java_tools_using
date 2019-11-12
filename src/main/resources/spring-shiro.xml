@@ -24,6 +24,9 @@
 			<value>
 				/login.jsp = anon
 				/user/login = anon
+				/js/**=anon
+				/css/**=anon
+				/static/**=anon
 				/index.jsp = anon
 				/admin/** = roles[admin]
 				/user/** = roles[user]

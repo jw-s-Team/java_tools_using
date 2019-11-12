@@ -23,12 +23,12 @@ input {
 /*登录注册二选一布局*/
 #loginOrRegister {
 	position: fixed;
-	left: 30%;
-	top: 30%;
+	left: 25%;
+	top: 10%;
 	background-color: #447391;
 	width: 500px;
-	margin-left: -250px;
-	margin-top: -150px;
+	/* margin-left: -250px;
+	margin-top: -150px; */
 	border-radius: 10px;
 	text-align: center;
 }
@@ -43,9 +43,6 @@ input {
 	font-size: 25px;
 	cursor: pointer;	
 }
-/*.title .register{
-	border-left: 1px solid black;
-}*/
 .title span:hover{
 	color: deeppink;
 }
@@ -90,7 +87,7 @@ form {
 }
  
 .box li label {
-	width: 68px;
+	width: 90px;
 	height: 50px;
 	float: left;
 	line-height: 50px;
@@ -100,6 +97,7 @@ form {
  
 .box li input{
 	padding: 6px 0;
+	margin-top:10px;
 	font-size: 16px;
 	width: 296px;
 	height: 28px;

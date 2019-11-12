@@ -26,8 +26,8 @@ $(function() {
 		});
 	})();
 	//登录界面账户输入框失去焦点
-	(function login_validate() {
-		$(".box1 .account").blur(function() {
+	/*(function login_validate() {*/
+		/*$(".box1 .account").blur(function() {
 			accountReg = /^[1][3,4,5,7,8][0-9]{9}$/;
 			if($(this).val() == "" || $(this).val() == "请输入您的账号（即手机号）") {
 				$(this).addClass("errorInput");
@@ -57,10 +57,10 @@ $(function() {
 				$(this).removeClass("errorInput");
 				$(this).next().empty();
 			}
-		});
+		});*/
  
 		// 验证码输入框失去焦点
-		$(".box1 .photokey").blur(function() {
+		/*$(".box1 .photokey").blur(function() {
 			var code1 = $('.box1 .photokey').val().toLowerCase();
 			var code2 = $(".box1 .authCode").text().toLowerCase();
 			if($('.box1 .photokey').val() == "") {
@@ -68,15 +68,25 @@ $(function() {
 				$(this).next().next().html("验证码不能为空！");
 				console.log("11111")
 				return;
-			} else if(code1 != code2) {
+			} else if(code1!=""&&code1 != code2) {
 				$(this).addClass("errorInput");
 				$(this).next().next().css("display", "block").html("验证码输入错误！");
-				console.log("22222")
 			} else {
 				$(this).removeClass("errorInput");
 				$(this).next().next().empty();
 				$(this).addClass("correctInput");
 			}
-		})
-	})();
-})
+		})*/
+	/*})();*/		
+});
+function doLogin(){
+	//校验验证码
+	var code1 = $('.box1 .photokey').val().toLowerCase();
+	var code2 = $(".box1 .authCode").text().toLowerCase();
+	var test=code1!=""&&code1 != code2;
+	console.log(test);
+	if(code1!=""&&code1 != code2) {
+		$('.box1 .photokey').addClass("errorInput");
+		$('.box1 .photokey').next().next().css("display", "block").html("验证码输入错误！");
+	} 
+}
