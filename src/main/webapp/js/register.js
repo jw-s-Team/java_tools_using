@@ -1,22 +1,30 @@
 var doRegister=function(){
 	var pwd1 = $('.box2 .password').val();
 	var pwd2 = $(".box2 .passwordConfirm").val();
-	if(pwd1 != pwd2) {
-		console.log(pwd1 != pwd2);
-		$(".error").show();
+	var validate_account=validate_account();
+	if(validate_account==1){
+		$(".existsAccount").show();
+		return false;
+	}else{
+		$(".existsAccount").hide();
+	}
+	if(pwd1 != pwd2) {		
+		$(".inconformity").show();
 		return false;
 	}else{
 		$(".error").hide();
-		register();
 	}
 }
-var register=function(){
+var validate_account=function(){
 	$.ajax({
-		url:"user/register?userName="+$(".registerForm #userName").val()+"&password="+$(".registerForm #password").val(),
-		type:'get'
+		url:"user/validateAccount",
+		data:{
+			userName:$(".register_userName").val()
+		},
+		type:'post'
 	});
-	
 }
+
 
 
 

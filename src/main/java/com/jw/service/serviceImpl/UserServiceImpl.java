@@ -22,12 +22,29 @@ public class UserServiceImpl implements UserService {
 	User user;
 
 	@Override
+	public void doRegister(String userName,String password) {
+		user.setUsername(userName);
+		user.setPassword(MD5Util.string2MD5(password));
+		userMapper.createUser(user);
+	}
+	
+	
+	@Override
+	public Integer doValidateAccount(String userName) {
+		Integer result=0;
+		if(userMapper.getUserByName(userName)!=null){
+			result=1;
+		}
+		return result;
+	}
+	
+	@Override
 	public User doLogin(String userName, String password) {
 		Subject subject=SecurityUtils.getSubject();//获取当前用主体：如当前用户
 		UsernamePasswordToken token=new UsernamePasswordToken(userName, password);//存储当前用户信息
 		try {
 			subject.login(token);//进入subject的login:调用UserRealm.doGetAuthenticationInfo方法
-			User user=getUserByName(userName);
+			User user=userMapper.getUserByName(userName);
 			return user;
 		} catch (AuthenticationException e) {
 			e.printStackTrace();
@@ -35,17 +52,8 @@ public class UserServiceImpl implements UserService {
 		return null;
 	}
 
-	@Override
-	public User getUserByName(String userName) {
-		return userMapper.getUserByName(userName);
-	}
 
-	@Override
-	public void createUser(String userName,String password) {
-		user.setUsername(userName);
-		user.setUsername(MD5Util.string2MD5(password));
-		userMapper.createUser(user);
-	}
+	
 
 	
 

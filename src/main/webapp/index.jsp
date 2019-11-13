@@ -24,11 +24,11 @@
 			<ul class="box box1">
 				<li>
 					<label for="userName">账号</label>
-					<input type="text" placeholder="请输入您的账号" class="userName" name="userName" id="userName" required oninvalid="setCustomValidity('请输入账号');" oninput="setCustomValidity('');"/>
+					<input type="text" placeholder="请输入您的账号" class="userName login_userName" name="userName"required oninvalid="setCustomValidity('请输入账号');" oninput="setCustomValidity('');"/>
 				</li>
 				<li>
 					<label for="password">密码</label>
-					<input type="password" class="password" id="password" name="password" placeholder="请输入密码" required oninvalid="setCustomValidity('请输入密码');" oninput="setCustomValidity('');"//>
+					<input type="password" class="password" name="password login_password" placeholder="请输入密码" required oninvalid="setCustomValidity('请输入密码');" oninput="setCustomValidity('');"//>
 				</li>
 				<!-- <li>
 					<label for="authCode">验证码</label>
@@ -50,12 +50,12 @@
 			</div>
 		</form>
 		<!-- 注册界面 -->
-		<form method="post" class="registerForm" onsubmit="return doRegister()" >
+		<form action="user/register" method="post" class="registerForm" onsubmit="return doRegister()" >
 			<ul class="box box2">
 				<li>
 					<label for="userName">账号</label>
-					<input type="text" placeholder="请输入您的账号" id="userName" name="userName" required oninvalid="setCustomValidity('请输入账号');" oninput="setCustomValidity('');"/>
-					<span class="error"></span>
+					<input type="text" placeholder="请输入您的账号" name="userName" class="userName register_userName" required oninvalid="setCustomValidity('请输入账号');" oninput="setCustomValidity('');"/>
+					<span class="error existsAccount">改账号已存在！</span>
 				</li>
 				<!-- <li>
 					<label for="authCode2">验证码</label>
@@ -65,12 +65,12 @@
 				</li> -->
 				<li>
 					<label for="password2">密码</label>
-					<input type="password" class="password" id="password" name="password" placeholder="请输入密码" required oninvalid="setCustomValidity('请输入密码');" oninput="setCustomValidity('');"/>
+					<input type="password" name="password" placeholder="请输入密码"  class="password register_password" required oninvalid="setCustomValidity('请输入密码');" oninput="setCustomValidity('');"/>
 				</li>
 				<li>
 					<label for="password3">确认密码</label>
 					<input type="password" class="passwordConfirm" id="password3" placeholder="请再次输入密码" required oninvalid="setCustomValidity('请输入确认密码');" oninput="setCustomValidity('');"/>
-					<span class="error">两次密码输入不一致!</span>
+					<span class="error inconformity">两次密码输入不一致!</span>
 				</li>
 			</ul>
 			<div class="submit">

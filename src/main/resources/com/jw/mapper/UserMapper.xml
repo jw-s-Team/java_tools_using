@@ -10,6 +10,6 @@
     </select>
     
     <insert id="createUser" parameterType="com.jw.pojo.User">
-    	insert into table_user(username,password) values(#{0},#{1})
+    	insert into table_user(username,password) values(#{userName},#{password})
     </insert>
 </mapper>
