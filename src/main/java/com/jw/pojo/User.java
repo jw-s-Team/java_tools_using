@@ -2,6 +2,11 @@ package com.jw.pojo;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+
+import org.springframework.stereotype.Component;
+
+@Component
 public class User implements Serializable{
 	/**
 	 * 
@@ -16,8 +21,8 @@ public class User implements Serializable{
 	public User(){		
 		
 	}
-	public User(String username,String password){
-		this.userName=username;
+	public User(String userName,String password){
+		this.userName=userName;
 		this.password=password;
 	}
 	
@@ -25,7 +30,7 @@ public class User implements Serializable{
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", username='" + userName + '\'' +
+                ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 ", salt='" + salt + '\'' +
                 ", locked=" + locked +

@@ -8,4 +8,8 @@
     <select id="getUserByName"  parameterType="string" resultType="com.jw.pojo.User">
         select * from table_user where username = #{0}
     </select>
+    
+    <insert id="createUser" parameterType="com.jw.pojo.User">
+    	insert into table_user(username,password) values(#{userName},#{password})
+    </insert>
 </mapper>
