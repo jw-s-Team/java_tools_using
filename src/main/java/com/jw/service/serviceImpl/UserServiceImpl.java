@@ -12,11 +12,14 @@ import org.springframework.stereotype.Service;
 import com.jw.mapper.UserMapper;
 import com.jw.pojo.User;
 import com.jw.service.UserService;
+import com.jw.utils.MD5Util;
 
 @Service
 public class UserServiceImpl implements UserService {
 	@Autowired
-	UserMapper userDao;
+	UserMapper userMapper;
+	@Autowired
+	User user;
 
 	@Override
 	public User doLogin(String userName, String password) {
@@ -34,7 +37,14 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User getUserByName(String userName) {
-		return userDao.getUserByName(userName);
+		return userMapper.getUserByName(userName);
+	}
+
+	@Override
+	public void createUser(String userName,String password) {
+		user.setUsername(userName);
+		user.setUsername(MD5Util.string2MD5(password));
+		userMapper.createUser(user);
 	}
 
 	

@@ -23,6 +23,10 @@ public class UserController {
 		}
 		return "welcome";
 	}
-
+	@RequestMapping(value="/register")
+    public String register(String userName, String password,HttpServletRequest request) {
+		userService.createUser(userName, password);		
+		return "welcome";
+	}
 		
 }

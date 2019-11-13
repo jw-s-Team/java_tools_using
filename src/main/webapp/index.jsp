@@ -20,7 +20,7 @@
 	<!-- 具体信息 -->
 	<div  >
 		<!-- 登录界面 -->
-		<form action="user/login" class="loginForm" onsubmit="doLogin()">
+		<form class="loginForm" onsubmit="doLogin()">
 			<ul class="box box1">
 				<li>
 					<label for="userName">账号</label>
@@ -30,12 +30,12 @@
 					<label for="password">密码</label>
 					<input type="password" class="password" id="password" name="password" placeholder="请输入密码" required oninvalid="setCustomValidity('请输入密码');" oninput="setCustomValidity('');"//>
 				</li>
-				<li>
+				<!-- <li>
 					<label for="authCode">验证码</label>
 					<input type="text" class="sradd photokey" id="authCode" placeholder="请输入验证码" required oninvalid="setCustomValidity('请输入验证码');" oninput="setCustomValidity('');"//>
 					<span class="add authCode"></span>
-					<span class="error"></span>
-				</li>
+					<span class="error" style="display:none">验证码输入错误！</span>
+				</li> -->
 			</ul>
 			<div>
 			
@@ -50,28 +50,27 @@
 			</div>
 		</form>
 		<!-- 注册界面 -->
-		<form action="www.baidu.com" method="post" class="registerForm" >
+		<form method="post" class="registerForm" onsubmit="return doRegister()" >
 			<ul class="box box2">
 				<li>
-					<label for="phone">手机</label>
-					<input type="text" placeholder="请输入您的手机号码" id="phone" maxlength="11" />
+					<label for="userName">账号</label>
+					<input type="text" placeholder="请输入您的账号" id="userName" name="userName" required oninvalid="setCustomValidity('请输入账号');" oninput="setCustomValidity('');"/>
 					<span class="error"></span>
 				</li>
-				<li>
+				<!-- <li>
 					<label for="authCode2">验证码</label>
 					<input type="text" class="sradd phonekey" id="authCode2" placeholder="请输入收到的验证码" />
 					<span class="add sendaAuthCode">发送验证码</span>
 					<span class="error"></span>
-				</li>
+				</li> -->
 				<li>
 					<label for="password2">密码</label>
-					<input type="password" class="password" id="password2" placeholder="请输入密码" />
-					<span class="error"></span>
+					<input type="password" class="password" id="password" name="password" placeholder="请输入密码" required oninvalid="setCustomValidity('请输入密码');" oninput="setCustomValidity('');"/>
 				</li>
 				<li>
 					<label for="password3">确认密码</label>
-					<input type="password" class="email" id="password3" placeholder="请再次输入密码" />
-					<span class="error">验证码输入错误！</span>
+					<input type="password" class="passwordConfirm" id="password3" placeholder="请再次输入密码" required oninvalid="setCustomValidity('请输入确认密码');" oninput="setCustomValidity('');"/>
+					<span class="error">两次密码输入不一致!</span>
 				</li>
 			</ul>
 			<div class="submit">
