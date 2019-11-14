@@ -1,12 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+<!DOCTYPE html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="static/bootstrap-4.3.1-dist/css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="css/index.css" />
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="static/app/bootstrap-4.3.1-dist/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="static/css/index.css" />
 <title>登录页面</title>
 </head>
 <body>
@@ -50,7 +47,7 @@
 			</div>
 		</form>
 		<!-- 注册界面 -->
-		<form action="user/register" method="post" class="registerForm" onsubmit="return doRegister()" >
+		<form action="java_tools_using/user/register" method="post" class="registerForm" onsubmit="return doRegister()" >
 			<ul class="box box2">
 				<li>
 					<label for="userName">账号</label>
@@ -81,8 +78,9 @@
 </div>
 </body>
 </html>
-<script src="static/jquery/jquery-3.4.1.min.js"></script>
-<script src="static/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
-<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
-<script src="js/login.js" type="text/javascript" charset="utf-8"></script>
-<script src="js/register.js" type="text/javascript" charset="utf-8"></script>
+<script src="static/app/jquery/jquery-3.4.1.min.js"></script>
+<script src="static/app/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+<script src="static/app/appconfig.js"></script>
+<script src="static/js/index.js" type="text/javascript" charset="utf-8"></script>
+<script src="static/js/login.js" type="text/javascript" charset="utf-8"></script>
+<script src="static/js/register.js" type="text/javascript" charset="utf-8"></script>

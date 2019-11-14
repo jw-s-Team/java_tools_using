@@ -1,33 +1,36 @@
 var doRegister=function(){
 	var pwd1 = $('.box2 .password').val();
 	var pwd2 = $(".box2 .passwordConfirm").val();
-	if(pwd1 != pwd2) {
-		console.log(pwd1 != pwd2);
-		$(".error").show();
+	var validate_account=validateAccount();
+	if(validate_account==1){
+		$(".existsAccount").show();
+		return false;
+	}else{
+		$(".existsAccount").hide();
+	}
+	if(pwd1 != pwd2) {		
+		$(".inconformity").show();
 		return false;
 	}else{
 		$(".error").hide();
-		register();
 	}
+	return false;
 }
-var register=function(){
-	console.log($(".register_userName").val());
+var validateAccount=function(){
+	var result;
 	$.ajax({
-		url:"user/register",
+		url:"$tools.ctx/user/validateAccount",
 		data:{
-			userName:$(".register_userName").val(),
-			password:$(".register_password").val()
+			userName:$(".register_userName").val()
 		},
 		type:'post',
-		success:function(){
-			alter(1);
-		},
-		error:function(){
-			alter(2);
+		success:function(data){
+			result=data;
 		}
 	});
-	
+	return data;
 }
+
 
 
 
