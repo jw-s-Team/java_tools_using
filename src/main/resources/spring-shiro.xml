@@ -5,12 +5,19 @@
                         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
 	default-lazy-init="true">
 	
-
  
 	<!-- 配置安全管理器 -->
 	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
-		<property name="realm" ref="myShiroRealm" />		
+		<property name="realm" ref="myShiroRealm" />
+		<property name="sessionManager" ref="sessionManager"/>		
 	</bean>
+	
+	<bean id="sessionManager" class="com.jw.shiro.SessionManager">
+    <!--超时设置，负数不超时-->
+    <property name="globalSessionTimeout" value="-1000"/>
+    <!--其它相关设置-->
+</bean>
+	
 	
 	<!-- shiro的核心配置:  配置shiroFileter id名必须与web.xml中的filtername保持一致 -->
 	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
@@ -42,7 +49,7 @@
 	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
 	
 	<!-- 項目自定义的Realm,从数据库中获取用户的安全数据 -->
-	<bean id="myShiroRealm" class="com.jw.realm.UserRealm">
+	<bean id="myShiroRealm" class="com.jw.shiro.UserRealm">
 		<!-- 配置缓存管理器-->
 		<property name="cacheManager" ref="cacheManager" />
 		<!-- 配置加密器： -->

@@ -81,12 +81,13 @@ $(function() {
 });
 function doLogin(){
 	//提交前进行验证码校验
-	var code1 = $('.box1 .photokey').val().toLowerCase();
+	/*var code1 = $('.box1 .photokey').val().toLowerCase();
 	var code2 = $(".box1 .authCode").text().toLowerCase();
 	if(code1!=""&&code1!=code2){
 		$(".error").show();
 	}else{
+		$(".error").show();
 		
-		
-	}
+	}*/
+	
 }

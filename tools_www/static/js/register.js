@@ -14,21 +14,21 @@ var doRegister=function(){
 	}else{
 		$(".error").hide();
 	}
-	return false;
 }
 var validateAccount=function(){
-	var result;
+	var result=0;
 	$.ajax({
-		url:"$tools.ctx/user/validateAccount",
+		url:$tools.ctx+"/user/validateAccount",
 		data:{
 			userName:$(".register_userName").val()
 		},
 		type:'post',
+		async:false,
 		success:function(data){
 			result=data;
 		}
 	});
-	return data;
+	return result;
 }
 
 
