@@ -4,7 +4,9 @@ import com.jw.pojo.User;
 import com.jw.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -32,7 +34,8 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/validateAccount")
-    public Integer validateAccount(String userName) {
+	@ResponseBody
+    public int validateAccount(String userName) {
 		return userService.doValidateAccount(userName);
 	}
 	

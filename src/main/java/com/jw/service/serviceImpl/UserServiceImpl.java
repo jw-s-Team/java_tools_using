@@ -30,8 +30,8 @@ public class UserServiceImpl implements UserService {
 	
 	
 	@Override
-	public Integer doValidateAccount(String userName) {
-		Integer result=0;
+	public int doValidateAccount(String userName) {
+		int result=0;
 		if(userMapper.getUserByName(userName)!=null){
 			result=1;
 		}

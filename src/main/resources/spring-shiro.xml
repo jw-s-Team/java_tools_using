@@ -24,6 +24,7 @@
 			<value>
 				/index.jsp = anon
 				/user/register=anon
+				/user/validateAccount=anon
 				/user/login = anon
 				/js/**=anon
 				/css/**=anon

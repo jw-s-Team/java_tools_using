@@ -7,5 +7,5 @@ public interface UserService {
 	
 	public void doRegister(String userName,String password);
 
-	public Integer doValidateAccount(String userName);
+	public int doValidateAccount(String userName);
 }
