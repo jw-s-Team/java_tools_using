@@ -28,9 +28,10 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/register")
-    public String register(String userName, String password,HttpServletRequest request) {
+	@ResponseBody
+    public String  register(String userName, String password,HttpServletRequest request) {
 		userService.doRegister(userName, password);
-		return "welcome";
+		return "200";
 	}
 	
 	@RequestMapping(value="/validateAccount")

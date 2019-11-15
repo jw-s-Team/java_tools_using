@@ -4,17 +4,30 @@ var doRegister=function(){
 	var validate_account=validateAccount();
 	if(validate_account==1){
 		$(".existsAccount").show();
-		return false;
-	}else{
-		$(".existsAccount").hide();
-	}
-	if(pwd1 != pwd2) {		
+	}else if(pwd1 != pwd2) {		
 		$(".inconformity").show();
-		return false;
 	}else{
-		$(".error").hide();
+		toRegister();
 	}
+	return false;
 }
+
+var toRegister=function(){
+	$.ajax({
+		url:$tools.ctx+"/user/register",
+		data:{
+			userName:$(".register_userName").val(),
+			password:$(".register_password").val()
+		},
+		type:'post',
+		success:function(status){
+			if(status=="200"){
+				window.location.href='html/welcome.html';	
+			}		
+		}
+	});
+}
+
 var validateAccount=function(){
 	var result=0;
 	$.ajax({

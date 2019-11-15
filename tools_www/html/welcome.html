@@ -5,6 +5,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-welcome
+<input type="button"value="click"onclick="voice()"/>
 </body>
 </html>
+<script>
+function voice(){
+	var utterThis = new window.SpeechSynthesisUtterance();
+	utterThis.text = "支付宝到账";
+	utterThis.lang = "zh";
+	utterThis.rate = "0.7";
+	window.speechSynthesis.speak(utterThis);
+}
+</script>
