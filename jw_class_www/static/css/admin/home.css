@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+.btn{
+	width:50px;
+}
+.bt-patch{
+	width:80px;
+}
+.search-group{
+	width:200px;
+	float:right;
+	margin-right:20px;
+}

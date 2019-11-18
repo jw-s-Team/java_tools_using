@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void doRegister(String userName,String password) {
-		user.setUsername(userName);
+		user.setUserName(userName);
 		user.setPassword(MD5Util.string2MD5(password));
 		userMapper.createUser(user);
 	}
