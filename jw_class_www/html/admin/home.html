@@ -11,10 +11,22 @@
 
 </head>
 <body>
-<div style="height:50px;border:1px solid gray;margin-bottom:20px;text-align:center">
-<h2>title</h2>
+<div class="top-part">
 </div>
-<div class="container">
+<div class="content-part container">
+	<div class="row">
+		<div class="nav-left col-md-3 col-sm-3">
+		</div>
+		<div class="content-right col-md-9 col-sm-9">
+			<ul class="nav nav-pills nav-stacked" style="border: 1px solid #d9edf7;border-radius:4px;">
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="admin-title">
+<span>JW_CLASS_SYS</span>后台管理系统
+</div>
+<div class="container container-box">
 	<div class="row">
 		<div class="col-md-3 col-sm-3" id="nav_bar" style="padding-top:45px;">
 			<ul class="nav nav-pills nav-stacked" style="border: 1px solid #d9edf7;border-radius:4px;">
@@ -23,75 +35,17 @@
 				<li onClick="changeTo('permission')"><a href="#">权限管理</a></li>
 			</ul>
 		</div>
-		<div class="col-md-9 col-sm-9" id="cont_bar">
-			<!-- 用户管理界面 -->
-			<div class="admin_user row">
-				<div class="tool_bar row" style="padding-bottom:20px;">
-					<div style="float:left;margin-left:40px;">
-						<input type="button" class="btn btn-info btn-sm" value="添加">
-						<input type="button" class="btn btn-info btn-sm bt-patch" value="批量导入">
-					</div>
-					<div class="input-group search-group">
-						<input type="text" class="form-control">
-						<span class="input-group-btn">
-							<button class="btn btn-primary" type="button">查询</button>
-						</span>               
-					</div>
-					
-				</div>
-				<table class="table table-bordered">
-					<thead>
-						<tr>
-							<th>序号</th>
-							<th>用户ID</th>
-							<th>用户名称</th>
-							<th>密码</th>
-							<th>最近修改</th>
-							<th>角色列表</th>
-							<th>操作</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>1</td>
-							<td>1</td>
-							<td>张三</td>
-							<td>123456</td>
-							<td>2019-11-18 16:34</td>
-							<td>学生</td>
-							<td>
-								<input type="button" class="btn btn-primary btn-sm" value="角色">
-								<input type="button" class="btn btn-info btn-sm" value="状态">
-								<input type="button" class="btn btn-success btn-sm" value="编辑">
-								<input type="button" class="btn btn-danger btn-sm" value="删除">
-							</td>
-						</tr>
-					</tbody>
-					    
-				</table>
-				<ul class="pagination" style="float:right;margin-top:80px;">
-				        <li><a href="#">&laquo;</a></li>
-				        <li><a href="#">1</a></li>
-				        <li><a href="#">2</a></li>
-				        <li><a href="#">3</a></li>
-				        <li><a href="#">4</a></li>
-				        <li><a href="#">5</a></li>
-				        <li><a href="#">&raquo;</a></li>
-				</ul>
-			</div>
-			<!-- 角色管理界面 -->
-			<div class="admin_role">
-			</div>
-			<!-- 权限管理界面 -->
-			<div class="admin_permission">
-			</div>
+		<div class="col-md-9 col-sm-9">
+			<iframe class="admin-content" frameborder="0" scrolling="no" src="../../html/admin/admin_user.html" style="width:100%;height:100%;"></iframe>					
 		</div>
 	</div>
 </div>
+
 
 </body>
 </html>
 <script src="../../static/app/jquery/jquery-3.4.1.min.js"></script>
 <script src="../../static/app/bootstrap3.3.7/bootstrap.min.js"></script>
+<script src="../../static/js/admin/home.js"></script>
 <script>
 </script>
