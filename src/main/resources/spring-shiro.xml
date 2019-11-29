@@ -33,6 +33,7 @@
 				/user/register=anon
 				/user/validateAccount=anon
 				/user/login = anon
+				/user/getUserList = anon
 				/js/**=anon
 				/css/**=anon
 				/static/**=anon

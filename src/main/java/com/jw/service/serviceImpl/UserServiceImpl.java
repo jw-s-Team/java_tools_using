@@ -2,6 +2,8 @@ package com.jw.service.serviceImpl;
 
 
 
+import java.util.List;
+
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -50,6 +52,13 @@ public class UserServiceImpl implements UserService {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+
+	@Override
+	public List<User> getUserList() {
+		System.out.println(userMapper.getUserList());
+		return userMapper.getUserList();
 	}
 
 

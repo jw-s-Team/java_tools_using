@@ -1,6 +1,7 @@
 @CHARSET "UTF-8";
 html,body{
 	height:100%;
+	overflow: hidden;
 }
 .admin-title{
 	height:100px;;
