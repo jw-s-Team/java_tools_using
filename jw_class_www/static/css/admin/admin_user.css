@@ -1,6 +1,12 @@
 @CHARSET "UTF-8";
+html,body{
+	height:100%;
+}
 .search-group{
 	width:200px;
 	float:right;
 	margin-right:20px;
+}
+.admin_user{
+	height: 100%;
 }

@@ -8,7 +8,7 @@
 </head>
 <body οnlοad="IFrameResize();">
 <!-- 用户管理界面 -->
-<div class="admin_user row">
+<div class="admin_user">
 	<div class="tool_bar row" style="padding-bottom:20px;">
 		<div style="float:left;margin-left:40px;">
 			<input type="button" class="btn btn-primary btn-sm btn-lg" data-toggle="modal" data-target="#addUserModal" value="添加">
@@ -23,19 +23,20 @@
 		</div>
 		
 	</div>
-	<table class="table table-bordered">
-		<thead>
-			<tr>
-				<th>序号</th>
-				<th>用户ID</th>
-				<th>用户名称</th>
-				<th>密码</th>
-				<th>最近修改</th>
-				<th>角色列表</th>
-				<th>操作</th>
-			</tr>
-		</thead>
-		<tbody>
+	<div style="height: 400px;overflow-y: auto;">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>序号</th>
+					<th>用户ID</th>
+					<th>用户名称</th>
+					<th>密码</th>
+					<th>最近修改</th>
+					<th>角色列表</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
 			<tr>
 				<!-- 后台参数变量 -->
 				<td>1</td>
@@ -51,18 +52,205 @@
 					<input type="button" class="btn btn-danger btn-sm" value="删除">
 				</td>
 			</tr>
-		</tbody>
-		    
-	</table>
-	<ul class="pagination" style="float:right;margin-top:80px;">
-	        <li><a href="#">&laquo;</a></li>
-	        <li><a href="#">1</a></li>
-	        <li><a href="#">2</a></li>
-	        <li><a href="#">3</a></li>
-	        <li><a href="#">4</a></li>
-	        <li><a href="#">5</a></li>
-	        <li><a href="#">&raquo;</a></li>
-	</ul>
+			<tr>
+				<!-- 后台参数变量 -->
+				<td>1</td>
+				<td>1</td>
+				<td>张三</td>
+				<td>123456</td>
+				<td>2019-11-18 16:34</td>
+				<td>学生</td>
+				<td>
+					<input type="button" class="btn btn-primary btn-sm" value="角色">
+					<input type="button" class="btn btn-info btn-sm" value="状态">
+					<input type="button" class="btn btn-success btn-sm" value="编辑">
+					<input type="button" class="btn btn-danger btn-sm" value="删除">
+				</td>
+			</tr><tr>
+				<!-- 后台参数变量 -->
+				<td>1</td>
+				<td>1</td>
+				<td>张三</td>
+				<td>123456</td>
+				<td>2019-11-18 16:34</td>
+				<td>学生</td>
+				<td>
+					<input type="button" class="btn btn-primary btn-sm" value="角色">
+					<input type="button" class="btn btn-info btn-sm" value="状态">
+					<input type="button" class="btn btn-success btn-sm" value="编辑">
+					<input type="button" class="btn btn-danger btn-sm" value="删除">
+				</td>
+			</tr><tr>
+				<!-- 后台参数变量 -->
+				<td>1</td>
+				<td>1</td>
+				<td>张三</td>
+				<td>123456</td>
+				<td>2019-11-18 16:34</td>
+				<td>学生</td>
+				<td>
+					<input type="button" class="btn btn-primary btn-sm" value="角色">
+					<input type="button" class="btn btn-info btn-sm" value="状态">
+					<input type="button" class="btn btn-success btn-sm" value="编辑">
+					<input type="button" class="btn btn-danger btn-sm" value="删除">
+				</td>
+			</tr><tr>
+				<!-- 后台参数变量 -->
+				<td>1</td>
+				<td>1</td>
+				<td>张三</td>
+				<td>123456</td>
+				<td>2019-11-18 16:34</td>
+				<td>学生</td>
+				<td>
+					<input type="button" class="btn btn-primary btn-sm" value="角色">
+					<input type="button" class="btn btn-info btn-sm" value="状态">
+					<input type="button" class="btn btn-success btn-sm" value="编辑">
+					<input type="button" class="btn btn-danger btn-sm" value="删除">
+				</td>
+			</tr><tr>
+				<!-- 后台参数变量 -->
+				<td>1</td>
+				<td>1</td>
+				<td>张三</td>
+				<td>123456</td>
+				<td>2019-11-18 16:34</td>
+				<td>学生</td>
+				<td>
+					<input type="button" class="btn btn-primary btn-sm" value="角色">
+					<input type="button" class="btn btn-info btn-sm" value="状态">
+					<input type="button" class="btn btn-success btn-sm" value="编辑">
+					<input type="button" class="btn btn-danger btn-sm" value="删除">
+				</td>
+			</tr><tr>
+				<!-- 后台参数变量 -->
+				<td>1</td>
+				<td>1</td>
+				<td>张三</td>
+				<td>123456</td>
+				<td>2019-11-18 16:34</td>
+				<td>学生</td>
+				<td>
+					<input type="button" class="btn btn-primary btn-sm" value="角色">
+					<input type="button" class="btn btn-info btn-sm" value="状态">
+					<input type="button" class="btn btn-success btn-sm" value="编辑">
+					<input type="button" class="btn btn-danger btn-sm" value="删除">
+				</td>
+			</tr><tr>
+				<!-- 后台参数变量 -->
+				<td>1</td>
+				<td>1</td>
+				<td>张三</td>
+				<td>123456</td>
+				<td>2019-11-18 16:34</td>
+				<td>学生</td>
+				<td>
+					<input type="button" class="btn btn-primary btn-sm" value="角色">
+					<input type="button" class="btn btn-info btn-sm" value="状态">
+					<input type="button" class="btn btn-success btn-sm" value="编辑">
+					<input type="button" class="btn btn-danger btn-sm" value="删除">
+				</td>
+			</tr><tr>
+				<!-- 后台参数变量 -->
+				<td>1</td>
+				<td>1</td>
+				<td>张三</td>
+				<td>123456</td>
+				<td>2019-11-18 16:34</td>
+				<td>学生</td>
+				<td>
+					<input type="button" class="btn btn-primary btn-sm" value="角色">
+					<input type="button" class="btn btn-info btn-sm" value="状态">
+					<input type="button" class="btn btn-success btn-sm" value="编辑">
+					<input type="button" class="btn btn-danger btn-sm" value="删除">
+				</td>
+			</tr><tr>
+				<!-- 后台参数变量 -->
+				<td>1</td>
+				<td>1</td>
+				<td>张三</td>
+				<td>123456</td>
+				<td>2019-11-18 16:34</td>
+				<td>学生</td>
+				<td>
+					<input type="button" class="btn btn-primary btn-sm" value="角色">
+					<input type="button" class="btn btn-info btn-sm" value="状态">
+					<input type="button" class="btn btn-success btn-sm" value="编辑">
+					<input type="button" class="btn btn-danger btn-sm" value="删除">
+				</td>
+			</tr><tr>
+				<!-- 后台参数变量 -->
+				<td>1</td>
+				<td>1</td>
+				<td>张三</td>
+				<td>123456</td>
+				<td>2019-11-18 16:34</td>
+				<td>学生</td>
+				<td>
+					<input type="button" class="btn btn-primary btn-sm" value="角色">
+					<input type="button" class="btn btn-info btn-sm" value="状态">
+					<input type="button" class="btn btn-success btn-sm" value="编辑">
+					<input type="button" class="btn btn-danger btn-sm" value="删除">
+				</td>
+			</tr><tr>
+				<!-- 后台参数变量 -->
+				<td>1</td>
+				<td>1</td>
+				<td>张三</td>
+				<td>123456</td>
+				<td>2019-11-18 16:34</td>
+				<td>学生</td>
+				<td>
+					<input type="button" class="btn btn-primary btn-sm" value="角色">
+					<input type="button" class="btn btn-info btn-sm" value="状态">
+					<input type="button" class="btn btn-success btn-sm" value="编辑">
+					<input type="button" class="btn btn-danger btn-sm" value="删除">
+				</td>
+			</tr><tr>
+				<!-- 后台参数变量 -->
+				<td>1</td>
+				<td>1</td>
+				<td>张三</td>
+				<td>123456</td>
+				<td>2019-11-18 16:34</td>
+				<td>学生</td>
+				<td>
+					<input type="button" class="btn btn-primary btn-sm" value="角色">
+					<input type="button" class="btn btn-info btn-sm" value="状态">
+					<input type="button" class="btn btn-success btn-sm" value="编辑">
+					<input type="button" class="btn btn-danger btn-sm" value="删除">
+				</td>
+			</tr><tr>
+				<!-- 后台参数变量 -->
+				<td>1</td>
+				<td>1</td>
+				<td>张三</td>
+				<td>123456</td>
+				<td>2019-11-18 16:34</td>
+				<td>学生</td>
+				<td>
+					<input type="button" class="btn btn-primary btn-sm" value="角色">
+					<input type="button" class="btn btn-info btn-sm" value="状态">
+					<input type="button" class="btn btn-success btn-sm" value="编辑">
+					<input type="button" class="btn btn-danger btn-sm" value="删除">
+				</td>
+			</tr>
+			</tbody>
+
+		</table>
+	</div>
+	<div style="text-align: right">
+		<ul class="pagination">
+			<li><a href="#">&laquo;</a></li>
+			<li><a href="#">1</a></li>
+			<li><a href="#">2</a></li>
+			<li><a href="#">3</a></li>
+			<li><a href="#">4</a></li>
+			<li><a href="#">5</a></li>
+			<li><a href="#">&raquo;</a></li>
+		</ul>
+	</div>
+
 </div>
 
 <!--添加  模态框  -->
