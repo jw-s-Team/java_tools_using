@@ -14,11 +14,13 @@ public class User {
     private Date lastModifyTime;
     private String remark;
     
-    
-    
-    public Long getUserId() {
+
+
+
+	public Long getUserId() {
 		return userId;
 	}
+
 
 
 
@@ -28,9 +30,11 @@ public class User {
 
 
 
+
 	public String getUserName() {
 		return userName;
 	}
+
 
 
 
@@ -40,9 +44,11 @@ public class User {
 
 
 
+
 	public String getPassword() {
 		return password;
 	}
+
 
 
 
@@ -52,9 +58,11 @@ public class User {
 
 
 
+
 	public String getSalt() {
 		return salt;
 	}
+
 
 
 
@@ -64,9 +72,11 @@ public class User {
 
 
 
+
 	public Date getCreateTime() {
 		return createTime;
 	}
+
 
 
 
@@ -76,9 +86,11 @@ public class User {
 
 
 
+
 	public Date getLastModifyTime() {
 		return lastModifyTime;
 	}
+
 
 
 
@@ -88,15 +100,18 @@ public class User {
 
 
 
+
 	public String getRemark() {
 		return remark;
 	}
 
 
 
+
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
+
 
 
 

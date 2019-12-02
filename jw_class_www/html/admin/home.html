@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>jw_class_sys后台管理系统</title>
 <link rel="stylesheet" type="text/css" href="../../static/app/bootstrap3.3.7/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="../../static/app/bootstrap3.3.7/bootstrap-table.min.css" />
 <link rel="stylesheet" type="text/css" href="../../static/css/admin/home.css" />
 
 
@@ -34,7 +35,8 @@
 			</ul>
 		</div>
 		<div class="col-md-9 col-sm-9" style="height: 100%;">
-			<iframe id="admin-content" frameborder="0" scrolling="no" src="../../html/admin/admin_user.html" style="width:100%;height:100%;"></iframe>
+			<div id="admin-toolbar"></div>
+			<table id="admin-table" class="table"></table>
 		</div>
 	</div>
 </div>
@@ -44,4 +46,5 @@
 </html>
 <script src="../../static/app/jquery/jquery-3.4.1.min.js"></script>
 <script src="../../static/app/bootstrap3.3.7/bootstrap.min.js"></script>
+<script src="../../static/app/bootstrap3.3.7/bootstrap-table.min.js"></script>
 <script src="../../static/js/admin/home.js"></script>

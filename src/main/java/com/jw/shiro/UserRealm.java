@@ -9,12 +9,12 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.jw.mapper.UserMapper;
+import com.jw.dao.UserDao;
 import com.jw.pojo.User;
 
 public class UserRealm extends AuthorizingRealm{
 	@Autowired
-	private UserMapper userMapper;
+	private UserDao userMapper;
 
 	//获取授权信息
 	@Override

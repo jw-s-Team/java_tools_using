@@ -11,7 +11,7 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.jw.mapper.UserMapper;
+import com.jw.dao.UserDao;
 import com.jw.pojo.User;
 import com.jw.service.UserService;
 import com.jw.utils.MD5Util;
@@ -19,22 +19,22 @@ import com.jw.utils.MD5Util;
 @Service
 public class UserServiceImpl implements UserService {
 	@Autowired
-	UserMapper userMapper;
+	UserDao userDao;
 	@Autowired
 	User user;
 
 	@Override
 	public void doRegister(String userName,String password) {
-		user.setUserName(userName);
+		user.setUserName(userName);;
 		user.setPassword(MD5Util.string2MD5(password));
-		userMapper.createUser(user);
+		userDao.createUser(user);
 	}
 	
 	
 	@Override
 	public int doValidateAccount(String userName) {
 		int result=0;
-		if(userMapper.getUserByName(userName)!=null){
+		if(userDao.getUserByName(userName)!=null){
 			result=1;
 		}
 		return result;
@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService {
 		UsernamePasswordToken token=new UsernamePasswordToken(userName, password);//存储当前用户信息
 		try {
 			subject.login(token);//进入subject的login:调用UserRealm.doGetAuthenticationInfo方法
-			User user=userMapper.getUserByName(userName);
+			User user=userDao.getUserByName(userName);
 			return user;
 		} catch (AuthenticationException e) {
 			e.printStackTrace();
@@ -57,8 +57,8 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<User> getUserList() {
-		System.out.println(userMapper.getUserList());
-		return userMapper.getUserList();
+		System.out.println(userDao.getUserList());
+		return userDao.getUserList();
 	}
 
 

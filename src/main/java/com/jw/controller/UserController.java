@@ -59,11 +59,7 @@ public class UserController {
 
 	}*/
 	
-	@RequestMapping(value="/getUserList")
-	@ResponseBody
-    public List<User> getUserList() {
-		return userService.getUserList();
-	}
+	
 	
 	
 		

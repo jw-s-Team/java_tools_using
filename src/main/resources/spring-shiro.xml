@@ -29,7 +29,7 @@
 		<!-- anon-匿名访问，authc-需要认证 -->
 		<property name="filterChainDefinitions">
 			<value>
-				/index.jsp = anon
+				<!-- /index.jsp = anon
 				/user/register=anon
 				/user/validateAccount=anon
 				/user/login = anon
@@ -37,10 +37,11 @@
 				/js/**=anon
 				/css/**=anon
 				/static/**=anon
-				<!-- /admin/** = roles[admin]
-				/user/** = roles[user] -->
+				/admin/** = roles[admin]
+				/user/** = roles[user]
                 /logout=logout
-				/** = authc
+				/** = authc -->
+				/** = anon
 			</value>
 		</property>
 	</bean>

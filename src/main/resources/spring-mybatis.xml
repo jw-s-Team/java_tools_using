@@ -31,10 +31,10 @@
         <property name="maxWait" value="${maxWait}"></property>  
     </bean>  
   
-    <!-- 扫描存放sql语句的mapper.xml文件-->  
+    
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">  
         <property name="dataSource" ref="dataSource" />  
-        <property name="mapperLocations" value="classpath:com/jw/mapper/*.xml"></property>  
+        <!-- <property name="mapperLocations" value="classpath:com/jw/mapper/*.xml"></property>   -->
         <property name="plugins">
             <array>
                 <bean class="com.github.pagehelper.PageInterceptor">
@@ -46,11 +46,12 @@
                 </bean>
             </array>
         </property>
+        <property name="configLocation" value="classpath:mybatis.xml"/>
     </bean>  
   
   <!--  扫描mapper,将其生命周期纳入spring管理-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">  
-        <property name="basePackage" value="com.jw.mapper" />  
+        <property name="basePackage" value="com.jw.dao" />  
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>  
     </bean>  
   
