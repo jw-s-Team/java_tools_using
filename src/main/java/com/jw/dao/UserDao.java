@@ -11,6 +11,6 @@ public interface UserDao {
 
 	public User getUserByName(String userName);
 
-	@Select("select * from tb_user")
+	@Select("select * from tb_user order by last_modify_time desc")
 	public List<User> getUserList();
 }

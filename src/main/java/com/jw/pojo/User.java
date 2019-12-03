@@ -2,7 +2,12 @@ package com.jw.pojo;
 
 import java.util.Date;
 
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 import org.springframework.stereotype.Component;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Component
 public class User {
@@ -72,7 +77,8 @@ public class User {
 
 
 
-
+	@Temporal(TemporalType.TIMESTAMP)  
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
 	public Date getCreateTime() {
 		return createTime;
 	}
@@ -86,7 +92,8 @@ public class User {
 
 
 
-
+	@Temporal(TemporalType.TIMESTAMP)  
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
 	public Date getLastModifyTime() {
 		return lastModifyTime;
 	}

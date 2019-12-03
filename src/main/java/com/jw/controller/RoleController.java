@@ -7,19 +7,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.jw.pojo.User;
-import com.jw.service.UserService;
+import com.jw.pojo.Role;
+import com.jw.service.RoleService;
 
 @Controller
-@RequestMapping("/admin")
-public class AdminController {
+@RequestMapping("/role")
+public class RoleController {
 	@Autowired
-	UserService userService;
+	RoleService roleService;
 	
-	@RequestMapping(value="/getUserList")
+	@RequestMapping(value="/getRoleList")
 	@ResponseBody
-    public List<User> getUserList() {
-		return userService.getUserList();
+    public List<Role> getRoleList() {
+		return roleService.getRoleList();
 	}
 
 }

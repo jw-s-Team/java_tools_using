@@ -22,4 +22,11 @@ html,body{
 .bt-patch{
 	width:80px;
 }
+.modal-body{
+	padding-left:100px;
+}
+.form-control{
+	display:inline;
+	width:60%;
+}
 

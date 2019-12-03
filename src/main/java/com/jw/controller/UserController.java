@@ -46,18 +46,11 @@ public class UserController {
 		return userService.doValidateAccount(userName);
 	}
 	
-	/*@RequestMapping(value="/getAllUser1")
+	@RequestMapping(value="/getUserList")
 	@ResponseBody
-    public List<User> getAllUser1(
-    		@RequestParam(required = false, defaultValue = "1") Integer startPage,
-    		@RequestParam(required = false, defaultValue = "100") Integer PageSize) {
-		PageHelper.startPage(startPage, PageSize);
-		List<User> users = new ArrayList<>();
-        users = userService.findAllUser();
-        PageInfo<User> pi = new PageInfo<>(users);
-        return users;
-
-	}*/
+    public List<User> getUserList() {
+		return userService.getUserList();
+	}
 	
 	
 	

@@ -4,34 +4,139 @@
 window.$tools={};
 window.$tools.path = '/xy_gurs_www';
 window.$tools.ctx = '/jw_class_sys';
-loadUserTable();
-var changeTo=function(type){
+
+
+var userColumns=[
+		          {
+		        	  checkbox: true,  
+		        	  visible: true
+		          },{
+		        	  field:'rowNum',
+		        	  title:'序号',
+		        	  align:'center',
+		        	  formatter:function(value,row,index){
+		        		  return index+1;
+		        	  }
+		        	  
+		          },{
+		        	  field:'userId',
+		        	  title:'用户ID',
+		        	  align:'center',
+		          },{
+		        	  field:'userName',
+		        	  title:'用户名称',
+		        	  align:'center',
+		          },{
+		        	  field:'password',
+		        	  title:'密码',
+		        	  align:'center',
+		          },{
+		        	  field:'salt',
+		        	  title:'盐',
+		        	  align:'center',
+		          }	,{
+		        	  field:'lastModifyTime',
+		        	  title:'最近修改时间',
+		        	  align:'center',
+		          }	,{
+		        	  field:'rowList',
+		        	  title:'角色列表',
+		        	  align:'center',
+		          },{
+		        	  field:'operation',
+		        	  title:'操作',
+		        	  align:'center',
+		        	  formatter:'operation'
+		          }		          
+		];
+
+var roleColumns=[
+		          {
+		        	  checkbox: true,  
+		        	  visible: true
+		          },{
+		        	  field:'rowNum',
+		        	  title:'序号',
+		        	  align:'center',
+		        	  formatter:function(value,row,index){
+		        		  return index+1;
+		        	  }
+		        	  
+		          },{
+		        	  field:'userId',
+		        	  title:'用户ID',
+		        	  align:'center',
+		          },{
+		        	  field:'userName',
+		        	  title:'用户名称',
+		        	  align:'center',
+		          }		          
+		];
+
+var permissionColumns=[
+		          {
+		        	  checkbox: true,  
+		        	  visible: true
+		          },{
+		        	  field:'rowNum',
+		        	  title:'序号',
+		        	  align:'center',
+		        	  formatter:function(value,row,index){
+		        		  return index+1;
+		        	  }
+		        	  
+		          },{
+		        	  field:'userId',
+		        	  title:'用户ID',
+		        	  align:'center',
+		          },{
+		        	  field:'userName',
+		        	  title:'用户名称',
+		        	  align:'center',
+		          }		          
+		];
+
+function changeTo(type,x){
 	if(type=='user'){
-		loadUserTable();
+		$('#admin-table').bootstrapTable('destroy');
+		loadTable(userColumns,'/user/getUserList');
 	}else if(type=='role'){
-		loadRoleTable();
+		$('#admin-table').bootstrapTable('destroy');
+		loadTable(roleColumns,'/role/getRoleList');
 	}else if(type='permission'){
-		loadPermTable();
+		$('#admin-table').bootstrapTable('destroy');
+		loadTable(roleColumns,'/role/getRoleList');
 	}
+	
 }
 
-function loadUserTable(){
+//遍历按钮组，如果当前点击==遍历的按钮，则添加class=active,否则remove
+/*var liList=$(".nav").children();
+for(var i=0;i<liList.length;i++){
+	liList[i].removeClass('active');
+	if(x==liList[i]){
+		liList[i].addClass('active');
+	}
+}*/
+
+
+function loadTable(tableColumn,url){	
 	$("#admin-table").bootstrapTable({
-		/*url:'/admin/getUserList',*/
-		ajax:function(){
+		ajax:function(request){
 			$.ajax({
 				type:"GET",
-                url:$tools.ctx +'/admin/getUserList',
+                url:$tools.ctx +url,
                 contentType:'application/json;charset=utf-8',
                 dataType:'json',
                 success:function (data) {
-                	console.log(data);
-                	row:data
+                	request.success({
+                		row:data
+                	});              	
                     $('#admin-table').bootstrapTable('load',data);
                 },
-                error:function(error){
-                    console.log(error);
-                }
+                error:function(){
+    				alert("错误");
+    			}
 			});
 		},
 		contentType:'application/x-www-form-urlencoded',
@@ -45,17 +150,19 @@ function loadUserTable(){
 		pagesize:20,
 		pageList:[10,20,50,100],
 		sidePagination:'client',
-		height:$(window).height,
-		columns: [
-		          {
-		        	  field:'userId',
-		        	  title:'用户ID'
-		          },{
-		        	  field:'userName',
-		        	  title:'用户名称'
-		          }		          
-		]
-		
+		height:$(window).height()-150,
+		columns: tableColumn		
 	});
 }
 
+//根据不同的菜单进行不同的操作：如编辑用户或编辑角色
+function operation(){
+	var html='<input type="button" class="btn btn-primary btn-sm" value="角色"> '
+		+'<input type="button" class="btn btn-info btn-sm" value="状态"> '
+		+'<input type="button" class="btn btn-success btn-sm" value="编辑"> '
+		+'<input type="button" class="btn btn-danger btn-sm" value="删除">';
+	return html;
+}
+
+
+changeTo('user');
