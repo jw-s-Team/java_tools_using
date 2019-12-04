@@ -92,14 +92,20 @@ var permissionColumns=[
 		          }		          
 		];
 
-function changeTo(type,x){
+function changeTo(type,obj){
+	if(obj){
+		$(".menuClass").removeClass("active");
+	}
 	if(type=='user'){
+		$(obj).addClass("active");
 		$('#admin-table').bootstrapTable('destroy');
 		loadTable(userColumns,'/user/getUserList');
 	}else if(type=='role'){
+		$(obj).addClass("active");
 		$('#admin-table').bootstrapTable('destroy');
 		loadTable(roleColumns,'/role/getRoleList');
 	}else if(type='permission'){
+		$(obj).addClass("active");
 		$('#admin-table').bootstrapTable('destroy');
 		loadTable(roleColumns,'/role/getRoleList');
 	}
