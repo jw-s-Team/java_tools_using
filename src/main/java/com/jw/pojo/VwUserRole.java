@@ -2,6 +2,11 @@ package com.jw.pojo;
 
 import java.util.Date;
 
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 /**
  * <pre>
  * 描述：TODO
@@ -55,7 +60,9 @@ public class VwUserRole {
         this.salt = salt;
     }
 
-    public Date getCreateTime() {
+    @Temporal(TemporalType.TIMESTAMP)  
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
+	public Date getCreateTime() {
         return createTime;
     }
 
@@ -63,7 +70,9 @@ public class VwUserRole {
         this.createTime = createTime;
     }
 
-    public Date getLastModifyTime() {
+    @Temporal(TemporalType.TIMESTAMP)  
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
+	public Date getLastModifyTime() {
         return lastModifyTime;
     }
 

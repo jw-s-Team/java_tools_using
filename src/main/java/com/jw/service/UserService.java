@@ -3,6 +3,7 @@ package com.jw.service;
 import java.util.List;
 
 import com.jw.pojo.User;
+import com.jw.pojo.VwUserRole;
 
 public interface UserService {
 	public User doLogin(String userName, String password);
@@ -11,5 +12,9 @@ public interface UserService {
 
 	public int doValidateAccount(String userName);
 
-	public List<User> getUserList();
+	public List<VwUserRole> getUserList();
+
+	public String addOneUser(String userName, String password, String ramark, String role);
+
+	public void newOneUser(String userName, String password, String remark);
 }

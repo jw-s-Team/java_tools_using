@@ -2,17 +2,20 @@ package com.jw.service.serviceImpl;
 
 
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jw.dao.UserDao;
 import com.jw.pojo.User;
+import com.jw.pojo.VwUserRole;
 import com.jw.service.UserService;
 import com.jw.utils.MD5Util;
 
@@ -56,10 +59,53 @@ public class UserServiceImpl implements UserService {
 
 
 	@Override
-	public List<User> getUserList() {
+	public List<VwUserRole> getUserList() {
 		System.out.println(userDao.getUserList());
 		return userDao.getUserList();
 	}
+	
+	//待定
+	public String genarateUserId(){
+		return null;
+		
+	}
+	
+	//盐生成规则：用户名+
+	public String generateSalt(String userName){
+		return userName+ new SecureRandomNumberGenerator().nextBytes().toHex();
+		
+	} 
+	
+	public String encrypPassword(String salt,String password){
+		return MD5Util.string2MD5(salt+password);
+		
+	}
+	
+	
+
+
+	@Override
+	public void newOneUser(String userName, String password, String remark) {
+		user.setUserName(userName);
+		String salt=generateSalt(userName);
+		user.setSalt(salt);
+		user.setPassword(encrypPassword(salt, password));
+		user.setCreateTime(new Date());
+		user.setLastModifyTime(new Date());
+		user.setRemark(remark);
+		userDao.newOneUser(user);
+	}
+
+
+	@Override
+	public String addOneUser(String userName, String password, String ramark, String role) {
+		newOneUser(userName,password,ramark);
+		
+		return null;
+	}
+
+
+	
 
 
 	

@@ -1,10 +1,6 @@
 /**
  * 
  */
-window.$tools={};
-window.$tools.path = '/xy_gurs_www';
-window.$tools.ctx = '/jw_class_sys';
-
 
 var userColumns=[
 		          {
@@ -39,7 +35,7 @@ var userColumns=[
 		        	  title:'最近修改时间',
 		        	  align:'center',
 		          }	,{
-		        	  field:'rowList',
+		        	  field:'roleName',
 		        	  title:'角色列表',
 		        	  align:'center',
 		          },{
@@ -129,6 +125,7 @@ function loadTable(tableColumn,url){
                 contentType:'application/json;charset=utf-8',
                 dataType:'json',
                 success:function (data) {
+                	console.log(data);
                 	request.success({
                 		row:data
                 	});              	

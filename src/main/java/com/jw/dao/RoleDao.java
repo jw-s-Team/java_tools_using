@@ -8,7 +8,6 @@ import com.jw.pojo.Role;
 
 public interface RoleDao {
 	
-	@Select("select * from tb_role order by last_modify_time desc")
-	public List<Role> getRoleList();
+	public List<String> getRoles();
 
 }

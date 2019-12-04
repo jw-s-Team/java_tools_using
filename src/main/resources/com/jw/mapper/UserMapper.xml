@@ -19,14 +19,21 @@
         select * from table_user where username = #{0}
     </select>
 
-    <select id="queryUserRole" resultMap="VwUserRoleMap">
-        select c.user_role_id, a.*,b.role_id,b.role_name
-        from tb_user a
-        left join tb_role b on a.user_id=c.user_id
-        left join tb_user_role c on b.role_id=c.role_id
+    <select id="getUserList" resultMap="VwUserRoleMap">
+        select b.user_role_id, a.*,c.role_id,c.role_name 
+			from tb_user a 
+			left join tb_user_role b on a.user_id=b.user_id 
+			left join tb_role c on b.role_id=c.role_id 
+			order by a.last_modify_time desc
     </select>
     
     <insert id="createUser" parameterType="com.jw.pojo.User">
     	insert into table_user(username,password) values(#{userName},#{password})
+    </insert>
+    
+    <insert id="newOneUser" parameterType="com.jw.pojo.User">
+    	insert into tb_user
+    		(user_name,password,salt,create_time,last_modify_time,remark)
+    		values(#{userName},#{password},#{salt},#{createTime},#{lastModifyTime},#{remark})
     </insert>
 </mapper>

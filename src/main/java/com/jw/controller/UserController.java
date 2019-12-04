@@ -3,6 +3,7 @@ package com.jw.controller;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.jw.pojo.User;
+import com.jw.pojo.VwUserRole;
 import com.jw.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -48,8 +49,14 @@ public class UserController {
 	
 	@RequestMapping(value="/getUserList")
 	@ResponseBody
-    public List<User> getUserList() {
+    public List<VwUserRole> getUserList() {
 		return userService.getUserList();
+	}
+    
+    @RequestMapping(value="/addOneUser")
+	@ResponseBody
+    public String addOneUser(String userName,String password,String ramark,String role) {
+		return userService.addOneUser(userName,password,ramark,role);
 	}
 	
 	

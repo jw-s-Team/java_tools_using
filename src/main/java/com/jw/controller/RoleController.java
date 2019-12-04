@@ -15,11 +15,11 @@ public class RoleController {
 	@Autowired
 	RoleService roleService;
 	
-	@RequestMapping(value="/getRoleList")
+	@RequestMapping(value="/getRoles")
 	@ResponseBody
-    public List<Role> getRoleList() {
+    public List<String> getRoles() {
 
-		return roleService.getRoleList();
+		return roleService.getRoles();
 
 	}
 

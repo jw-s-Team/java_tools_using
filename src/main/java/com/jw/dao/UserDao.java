@@ -8,11 +8,10 @@ import java.util.List;
 
 public interface UserDao {
 	public void createUser(User user);
+	
+	public void newOneUser(User user);
 
 	public User getUserByName(String userName);
 
-	@Select("select * from tb_user order by last_modify_time desc")
-	public List<User> getUserList();
-
-	List<VwUserRole> queryUserRole();
+	public List<VwUserRole> getUserList();
 }
