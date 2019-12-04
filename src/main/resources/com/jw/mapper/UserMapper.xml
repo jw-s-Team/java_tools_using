@@ -1,12 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper
-    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.jw.dao.UserDao">
+
+    <resultMap id="VwUserRoleMap" type="com.jw.pojo.VwUserRole" >
+        <id column="user_id" property="userId" jdbcType="NUMERIC" />
+        <result column="user_name" property="userName" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+        <result column="salt" property="salt" jdbcType="VARCHAR"/>
+        <result column="CREATE_TIME" property="createTime"/>
+        <result column="LAST_MODIFY_TIME" property="lastModifyTime"/>
+        <result column="remark" property="remark" jdbcType="VARCHAR"/>
+        <result column="user_role_id" property="userRoleId" jdbcType="NUMERIC"/>
+        <result column="role_name" property="roleName" jdbcType="VARCHAR"/>
+    </resultMap>
 	
     <select id="getUserByName"  parameterType="string" resultType="com.jw.pojo.User">
         select * from table_user where username = #{0}
+    </select>
+
+    <select id="queryUserRole" resultMap="VwUserRoleMap">
+        select c.user_role_id, a.*,b.role_id,b.role_name
+        from tb_user a
+        left join tb_role b on a.user_id=c.user_id
+        left join tb_user_role c on b.role_id=c.role_id
     </select>
     
     <insert id="createUser" parameterType="com.jw.pojo.User">
