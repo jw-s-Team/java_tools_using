@@ -55,8 +55,9 @@ public class UserController {
     
     @RequestMapping(value="/addOneUser")
 	@ResponseBody
-    public String addOneUser(String userName,String password,String ramark,String role) {
-		return userService.addOneUser(userName,password,ramark,role);
+    public String addOneUser(String userName,String password,String remark,Long roleId) {	
+    	String status=userService.addOneUser(userName,password,remark,roleId);
+		return status;
 	}
 	
 	

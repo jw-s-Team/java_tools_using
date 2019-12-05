@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
  * </pre>
  *
  * @类名：com.jw.pojo.VwUserRole
- * @作者： 汪立
+ * @作者： wangl
  * @创建日期: 2019-12-03 20:49
  */
 public class VwUserRole {

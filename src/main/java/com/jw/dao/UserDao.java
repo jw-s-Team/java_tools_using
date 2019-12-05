@@ -14,4 +14,6 @@ public interface UserDao {
 	public User getUserByName(String userName);
 
 	public List<VwUserRole> getUserList();
+	
+	public User getUserById(Long userId);
 }

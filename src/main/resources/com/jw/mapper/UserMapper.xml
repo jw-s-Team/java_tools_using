@@ -31,9 +31,12 @@
     	insert into table_user(username,password) values(#{userName},#{password})
     </insert>
     
-    <insert id="newOneUser" parameterType="com.jw.pojo.User">
+    <insert id="newOneUser" useGeneratedKeys="true" keyProperty="userId" parameterType="com.jw.pojo.User">	    
     	insert into tb_user
     		(user_name,password,salt,create_time,last_modify_time,remark)
     		values(#{userName},#{password},#{salt},#{createTime},#{lastModifyTime},#{remark})
+    	<selectKey resultType="java.lang.Long" order="AFTER" keyProperty="userId">
+	          SELECT LAST_INSERT_ID()
+	    </selectKey>
     </insert>
 </mapper>

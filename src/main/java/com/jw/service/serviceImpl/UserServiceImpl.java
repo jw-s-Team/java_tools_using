@@ -16,8 +16,10 @@ import org.springframework.stereotype.Service;
 import com.jw.dao.UserDao;
 import com.jw.pojo.User;
 import com.jw.pojo.VwUserRole;
+import com.jw.service.UserRoleService;
 import com.jw.service.UserService;
 import com.jw.utils.MD5Util;
+import com.sun.org.apache.regexp.internal.recompile;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -85,7 +87,7 @@ public class UserServiceImpl implements UserService {
 
 
 	@Override
-	public void newOneUser(String userName, String password, String remark) {
+	public Long newOneUser(String userName, String password, String remark) {
 		user.setUserName(userName);
 		String salt=generateSalt(userName);
 		user.setSalt(salt);
@@ -94,14 +96,21 @@ public class UserServiceImpl implements UserService {
 		user.setLastModifyTime(new Date());
 		user.setRemark(remark);
 		userDao.newOneUser(user);
+		return user.getUserId();
 	}
 
 
+	@Autowired
+	UserRoleService userRoleService;
 	@Override
-	public String addOneUser(String userName, String password, String ramark, String role) {
-		newOneUser(userName,password,ramark);
-		
-		return null;
+	public String addOneUser(String userName, String password, String remark, Long roleId) {
+		String result="";
+		Long userId=newOneUser(userName,password,remark);
+		Long insertFlag=userRoleService.newOneUserRole(userId,roleId);
+		if(insertFlag!=null){
+			result="success";
+		}
+		return result;
 	}
 
 

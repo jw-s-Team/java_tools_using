@@ -14,7 +14,7 @@ public interface UserService {
 
 	public List<VwUserRole> getUserList();
 
-	public String addOneUser(String userName, String password, String ramark, String role);
+	public String addOneUser(String userName, String password, String remark, Long roleId);
 
-	public void newOneUser(String userName, String password, String remark);
+	public Long newOneUser(String userName, String password, String remark);
 }

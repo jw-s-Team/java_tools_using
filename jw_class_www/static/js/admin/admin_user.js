@@ -12,11 +12,16 @@ function addUser(){
 				userName:$("#userName").val(),
 				password:$("#password").val(),
 				remark:$("#remark").val(),
-				role:$("#userRole").val()
+				roleId:$("#userRole").val()
 			},
-			success:function(data){
-				alert("添加成功");
-				//跳转至用户管理页面，刷新页面
+			success:function(status){
+				console.log(status);
+				if(status=="success"){
+					window.location.href='html/welcome.html';	
+				}		
+			},
+			error:function(status){
+				console.log(status);
 			}
 		});
 	}
