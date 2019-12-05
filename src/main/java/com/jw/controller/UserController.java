@@ -1,22 +1,17 @@
 package com.jw.controller;
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import com.jw.pojo.User;
 import com.jw.pojo.VwUserRole;
 import com.jw.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/user")
@@ -55,9 +50,11 @@ public class UserController {
     
     @RequestMapping(value="/addOneUser")
 	@ResponseBody
-    public String addOneUser(String userName,String password,String remark,Long roleId) {	
+    public Map<String, Object> addOneUser(String userName, String password, String remark, Long roleId) {
     	String status=userService.addOneUser(userName,password,remark,roleId);
-		return status;
+		Map<String, Object> result = new HashMap<>();
+		result.put("status",status);
+		return result;
 	}
 	
 	

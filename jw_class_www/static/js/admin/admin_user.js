@@ -14,14 +14,14 @@ function addUser(){
 				remark:$("#remark").val(),
 				roleId:$("#userRole").val()
 			},
-			success:function(status){
-				console.log(status);
-				if(status=="success"){
-					window.location.href='html/welcome.html';	
+			success:function(data){
+				console.log(data);
+				if(data.status=="success"){
+					window.location.href='/html/welcome.html';
 				}		
 			},
-			error:function(status){
-				console.log(status);
+			error:function(data){
+				console.log(data);
 			}
 		});
 	}
