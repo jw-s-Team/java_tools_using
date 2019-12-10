@@ -27,6 +27,11 @@ public class VwUserRole {
 
     private Long userRoleId;
     private String roleName;
+    
+    private Long classId;
+    private String className;
+    private Long gradeId;
+    private String gradeName;
 
     public Long getUserId() {
         return userId;
@@ -103,4 +108,38 @@ public class VwUserRole {
     public void setRoleName(String roleName) {
         this.roleName = roleName;
     }
+
+	public Long getClassId() {
+		return classId;
+	}
+
+	public void setClassId(Long classId) {
+		this.classId = classId;
+	}
+
+	public String getClassName() {
+		return className;
+	}
+
+	public void setClassName(String className) {
+		this.className = className;
+	}
+
+	public Long getGradeId() {
+		return gradeId;
+	}
+
+	public void setGradeId(Long gradeId) {
+		this.gradeId = gradeId;
+	}
+
+	public String getGradeName() {
+		return gradeName;
+	}
+
+	public void setGradeName(String gradeName) {
+		this.gradeName = gradeName;
+	}
+    
+    
 }

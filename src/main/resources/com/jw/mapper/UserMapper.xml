@@ -13,6 +13,10 @@
         <result column="remark" property="remark" jdbcType="VARCHAR"/>
         <result column="user_role_id" property="userRoleId" jdbcType="NUMERIC"/>
         <result column="role_name" property="roleName" jdbcType="VARCHAR"/>
+        <result column="class_id" property="classId" jdbcType="NUMERIC"/>
+        <result column="class_name" property="className" jdbcType="VARCHAR"/>
+        <result column="grade_id" property="gradeId" jdbcType="NUMERIC"/>
+        <result column="grade_name" property="gradeName" jdbcType="VARCHAR"/>
     </resultMap>
 	
     <select id="getUserByName"  parameterType="string" resultType="com.jw.pojo.User">
@@ -20,11 +24,17 @@
     </select>
 
     <select id="getUserList" resultMap="VwUserRoleMap">
-        select b.user_role_id, a.*,c.role_id,c.role_name 
+       SELECT b.user_role_id, a.*, c.role_id, c.role_name,g.class_id,g.class_name,g.grade_id
 			from tb_user a 
-			left join tb_user_role b on a.user_id=b.user_id 
-			left join tb_role c on b.role_id=c.role_id 
-			order by a.last_modify_time desc
+			LEFT JOIN tb_user_role b ON a.user_id = b.user_id
+			LEFT JOIN tb_role c ON b.role_id = c.role_id
+			LEFT JOIN tb_class_user f ON a.user_id = f.user_id
+			LEFT JOIN (
+				SELECT d.class_id, CONCAT( e.grade_name, " ", d.class_name ) class_name, d.grade_id
+				FROM tb_class d
+				LEFT JOIN tb_grade e ON d.grade_id = e.grade_id )g 
+			ON f.class_id = g.class_id 
+			order by a.last_modify_time
     </select>
     
     <insert id="createUser" parameterType="com.jw.pojo.User">

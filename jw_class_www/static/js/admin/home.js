@@ -23,20 +23,16 @@ var userColumns=[
 		        	  title:'用户名称',
 		        	  align:'center',
 		          },{
-		        	  field:'password',
-		        	  title:'密码',
-		        	  align:'center',
-		          },{
-		        	  field:'salt',
-		        	  title:'盐',
-		        	  align:'center',
-		          }	,{
-		        	  field:'lastModifyTime',
-		        	  title:'最近修改时间',
-		        	  align:'center',
-		          }	,{
 		        	  field:'roleName',
 		        	  title:'角色列表',
+		        	  align:'center',
+		          },{
+		        	  field:'className',
+		        	  title:'班级',
+		        	  align:'center',
+		          },{
+		        	  field:'lastModifyTime',
+		        	  title:'最近修改时间',
 		        	  align:'center',
 		          },{
 		        	  field:'operation',
@@ -45,6 +41,38 @@ var userColumns=[
 		        	  formatter:'operation'
 		          }		          
 		];
+
+classColumns=[
+	          {
+	        	  checkbox: true,  
+	        	  visible: true
+	          },{
+	        	  field:'rowNum',
+	        	  title:'序号',
+	        	  align:'center',
+	        	  formatter:function(value,row,index){
+	        		  return index+1;
+	        	  }
+	        	  
+	          },{
+	        	  field:'classId',
+	        	  title:'班级ID',
+	        	  align:'center',
+	          },{
+	        	  field:'className',
+	        	  title:'班级',
+	        	  align:'center',
+	          }	,{
+	        	  field:'lastModifyTime',
+	        	  title:'最近修改时间',
+	        	  align:'center',
+	          },{
+	        	  field:'operation',
+	        	  title:'操作',
+	        	  align:'center',
+	        	  formatter:'operation'
+	          }		          
+	];
 
 var roleColumns=[
 		          {
@@ -95,31 +123,31 @@ var permissionColumns=[
 function changeTo(type,obj){
 	if(obj){
 		$(".menuClass").removeClass("active");
+		$("#addBtn").attr('data-target','');
 	}
 	if(type=='user'){
 		$(obj).addClass("active");
+		$("#addBtn").attr('data-target','#addUserModal');
 		$('#admin-table').bootstrapTable('destroy');
 		loadTable(userColumns,'/user/getUserList');
+	}else if(type=='class'){
+		$(obj).addClass("active");
+		$("#addBtn").attr('data-target','#addClassModal');
+		$('#admin-table').bootstrapTable('destroy');
+		loadTable(classColumns,'/class/getClassList');
 	}else if(type=='role'){
 		$(obj).addClass("active");
+		$("#addBtn").attr('data-target','#addRoleModal');
 		$('#admin-table').bootstrapTable('destroy');
-		loadTable(roleColumns,'/role/getRoleList');
+		loadTable(roleColumns,'/user/getUserList');
 	}else if(type='permission'){
 		$(obj).addClass("active");
+		$("#addBtn").attr('data-target','#addPermissionModal');
 		$('#admin-table').bootstrapTable('destroy');
-		loadTable(roleColumns,'/role/getRoleList');
+		loadTable(roleColumns,'/user/getUserList');
 	}
 	
 }
-
-//遍历按钮组，如果当前点击==遍历的按钮，则添加class=active,否则remove
-/*var liList=$(".nav").children();
-for(var i=0;i<liList.length;i++){
-	liList[i].removeClass('active');
-	if(x==liList[i]){
-		liList[i].addClass('active');
-	}
-}*/
 
 
 function loadTable(tableColumn,url){	

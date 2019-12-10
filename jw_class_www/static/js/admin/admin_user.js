@@ -6,7 +6,6 @@ function addUser(){
 	if(valiResult){
 		$.ajax({
 			method:'POST',
-			dataType:"json",
 			url:$tools.ctx+'/user/addOneUser',
 			data:{
 				userName:$("#userName").val(),
@@ -15,13 +14,13 @@ function addUser(){
 				roleId:$("#userRole").val()
 			},
 			success:function(data){
-				console.log(data);
-				if(data.status=="success"){
-					window.location.href='/html/welcome.html';
+				if(data=="success"){
+					alert("添加成功！");
+					 location.reload() ;
 				}		
 			},
 			error:function(data){
-				console.log(data);
+				alert("系统出错，请联系相关人员！")
 			}
 		});
 	}
@@ -41,6 +40,6 @@ function  userAddValidate(){
 	}else{
 		$(".passwordReq").hide();
 	}
-	console.log(result);
 	return result;
 }
+

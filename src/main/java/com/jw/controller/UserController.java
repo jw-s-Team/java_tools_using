@@ -50,11 +50,9 @@ public class UserController {
     
     @RequestMapping(value="/addOneUser")
 	@ResponseBody
-    public Map<String, Object> addOneUser(String userName, String password, String remark, Long roleId) {
+    public String addOneUser(String userName, String password, String remark, Long roleId) {
     	String status=userService.addOneUser(userName,password,remark,roleId);
-		Map<String, Object> result = new HashMap<>();
-		result.put("status",status);
-		return result;
+		return status;
 	}
 	
 	
