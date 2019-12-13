@@ -11,7 +11,8 @@ function addUser(){
 				userName:$("#userName").val(),
 				password:$("#password").val(),
 				remark:$("#remark").val(),
-				roleId:$("#userRole").val()
+				roleId:$("#userRole").val(),
+				classId:$("#userClass").val()
 			},
 			success:function(data){
 				if(data=="success"){

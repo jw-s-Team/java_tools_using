@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import com.jw.dao.UserDao;
 import com.jw.pojo.User;
 import com.jw.pojo.VwUserRole;
+import com.jw.service.UserClassService;
 import com.jw.service.UserRoleService;
 import com.jw.service.UserService;
 import com.jw.utils.MD5Util;
@@ -102,10 +103,13 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	UserRoleService userRoleService;
+	@Autowired
+	UserClassService userClassService;
 	@Override
-	public String addOneUser(String userName, String password, String remark, Long roleId) {
+	public String addOneUser(String userName, String password, String remark, Long roleId,Long classId) {
 		String result="";
 		Long userId=newOneUser(userName,password,remark);
+		userClassService.newOneUserClass(userId,classId);
 		Long insertFlag=userRoleService.newOneUserRole(userId,roleId);
 		if(insertFlag!=null){
 			result="success";

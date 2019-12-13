@@ -70,7 +70,12 @@ classColumns=[
 	        	  field:'operation',
 	        	  title:'操作',
 	        	  align:'center',
-	        	  formatter:'operation'
+	        	  formatter:function (value,row,index){
+	        		  console.log("value:"+value);
+	        		  console.log(row);
+	        		  console.log(index);
+	        		  operation("row:"+row);
+	        	  }
 	          }		          
 	];
 
@@ -159,7 +164,6 @@ function loadTable(tableColumn,url){
                 contentType:'application/json;charset=utf-8',
                 dataType:'json',
                 success:function (data) {
-                	console.log(data);
                 	request.success({
                 		row:data
                 	});              	
@@ -186,11 +190,17 @@ function loadTable(tableColumn,url){
 	});
 }
 
+function editOne(row){
+	console.log(row);
+	
+}
+
 //根据不同的菜单进行不同的操作：如编辑用户或编辑角色
-function operation(){
+function operation(row){
+	console.log("row=="+row);
 	var html='<input type="button" class="btn btn-primary btn-sm" value="角色"> '
 		+'<input type="button" class="btn btn-info btn-sm" value="状态"> '
-		+'<input type="button" class="btn btn-success btn-sm" value="编辑"> '
+		+'<input type="button" class="btn btn-success btn-sm" value="编辑" onclick="editOne('+JSON.stringify(row)+')"> '
 		+'<input type="button" class="btn btn-danger btn-sm" value="删除">';
 	return html;
 }

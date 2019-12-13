@@ -50,8 +50,8 @@ public class UserController {
     
     @RequestMapping(value="/addOneUser")
 	@ResponseBody
-    public String addOneUser(String userName, String password, String remark, Long roleId) {
-    	String status=userService.addOneUser(userName,password,remark,roleId);
+    public String addOneUser(String userName, String password, String remark, Long roleId,Long classId) {
+    	String status=userService.addOneUser(userName,password,remark,roleId,classId);
 		return status;
 	}
 	

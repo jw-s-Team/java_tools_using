@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jw.dao.UserClassDao">
+	<insert id="newOneUserClass" parameterType="com.jw.pojo.UserClass">
+		insert into tb_class_user
+			(user_id,class_id,create_time,last_modify_time)
+			values(#{userId},#{classId},#{createTime},#{lastModifyTime})
+	</insert>
+</mapper>

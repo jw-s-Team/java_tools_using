@@ -14,10 +14,10 @@ homeApp.controller('homeController', function($scope,$http) {
 		method:'GET',
 		url:$tools.ctx+'/grade/getGradeList'				
 		}).success(function(data){
-			console.log(data);
 			$scope.grades=data;
 			$scope.selectedGrade = $scope.grades[0];
 		});
+	
 	
 	$scope.classes=[];
 	$scope.selectedClass={};
@@ -27,10 +27,11 @@ homeApp.controller('homeController', function($scope,$http) {
 			method:'POST',
 			url:$tools.ctx+'/class/getUserClass?gradeId='+x
 		}).success(function(data){
-			console.log(data);
 			$scope.classes=data;
 			$scope.selectedClass=$scope.classes[0];
 			console.log($scope.selectedClass);
 		});
 	}
+	
+	$scope.getClassList(1);
 });

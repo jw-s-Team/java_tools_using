@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jw.dao.ClassDao"> 
+
+	<resultMap id="VwClassGradeMap" type="com.jw.pojo.VwClassGrade" >
+        <id column="class_id" property="classId" jdbcType="NUMERIC" />
+        <result column="class_name" property="className" jdbcType="VARCHAR"/>
+        <result column="grade_id" property="gradeId" jdbcType="VARCHAR"/>
+        <result column="CREATE_TIME" property="createTime"/>
+        <result column="LAST_MODIFY_TIME" property="lastModifyTime"/>
+        <result column="grade_name" property="gradeName" jdbcType="VARCHAR"/>
+    </resultMap>
+	
+	<select id="getClassList" resultMap="VwClassGradeMap">
+       select a.class_id, CONCAT(b.grade_name," ",a.class_name) class_name,a.grade_id,a.create_time,a.last_modify_time 
+       from tb_class a left join tb_grade b on a.grade_id=b.grade_id
+    </select>
+    
+    <select id="getUserClass" resultType="map" parameterType="long">
+		select class_id,class_name from tb_class where grade_id=#{gradeId}
+	</select>
+    
+
+   
+</mapper>
