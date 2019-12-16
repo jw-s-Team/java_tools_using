@@ -197,7 +197,7 @@ function operation(type,row){
 	if(type=='user'){
 		html='<input type="button" class="btn btn-primary btn-sm" value="角色"> '
 			+'<input type="button" class="btn btn-info btn-sm" value="状态"> '
-			+'<input type="button" class="btn btn-success btn-sm" value="编辑" ng-app="editUserApp" ng-controller="editUserController"id="editBtn"ng-click="editOne('+row+')"data-toggle="modal" data-target="#editUserModal"> '
+			+'<input type="button" class="btn btn-success btn-sm" value="编辑" id="editBtn"ng-click="editOne('+row+')"data-toggle="modal" data-target="#editUserModal"> '
 			+'<input type="button" class="btn btn-danger btn-sm" value="删除">';
 	}
 	return html;
