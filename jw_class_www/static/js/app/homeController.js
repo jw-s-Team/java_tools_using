@@ -1,5 +1,5 @@
-var homeApp = angular.module('homeApp', []);
-homeApp.controller('homeController', function($scope,$http) {
+var addUserApp = angular.module('addUserApp', []);
+addUserApp.controller('addUserController', function($scope,$http) {
 	$http({
 	method:'GET',
 	url:$tools.ctx+'/role/getRoles'				
@@ -34,4 +34,17 @@ homeApp.controller('homeController', function($scope,$http) {
 	}
 	
 	$scope.getClassList(1);
+
+	
+});
+
+var editUserApp=angular.module('editUserApp',[]);
+editUserApp.controller('editUserController',function($scope,$http){
+	$scope.test="123";
+	$scope.editRow="";
+	$scope.editOne=function(row){
+		$scope.editRow=row;
+		console.log($scope.editRow);
+		
+	}
 });

@@ -59,7 +59,7 @@
 </div>
 
 <!--添加  模态框  -->
-<div ng-app="homeApp" ng-controller="homeController" class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="userModalLabel" aria-hidden="true">
+<div ng-app="addUserApp" ng-controller="addUserController" class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="userModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -119,28 +119,56 @@
 		
 	</div><!-- /.modal -->
 </div>
-	
 
-<!--添加班级  模态框  -->
-<div ng-app="homeApp" ng-controller="homeController" class="modal fade" id="addClassModal" tabindex="-1" role="dialog" aria-labelledby="classModalLabel" aria-hidden="true">
+<!-- 编辑用户 模态框 -->
+<div ng-app="editUserApp" ng-controller="editUserController" class="modal fade" id="editUserModal" tabindex="-1" role="dialog" aria-labelledby="editUserModal" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 					&times;
 				</button>
-				<h4 class="modal-title" id="classModalLabel">
-					添加班级
+				<h4 class="modal-title" id="editUserModal">
+					添加用户{{test}}
 				</h4>
 			</div>
 			<div class="modal-body">
-				
+				<div class="form-group">
+					<label for="user1">名称:</label>
+					<input type="text" class="form-control" id="user1" ng-model="test"placeholder="请输入名称"/>
+					<span class="require userNameReq">请输入用户名称</span>
+				</div>
+				<div class="form-group">
+					<label for="password">密码:</label>
+					<input type="text" class="form-control" id="password" placeholder="请输入密码"/>
+					<span class="require passwordReq">请输入用户密码</span>
+				</div>
+				<div class="form-group">
+					<label for="remark">备注:</label>
+					<input type="text" class="form-control" id="remark" placeholder="请输入备注"/>
+				</div>
 				<div class="form-group">
 					<label for="roleName">角色:</label>
-					<select class="userRole form-control"id="userRole" ng-model="selectedRole" ng-options="role.role_name for role in roles track by role.role_id">
+					<select class="userRole form-control"id="userRole" ng-model="selectedRole"
+						 ng-options="role.role_name for role in roles track by role.role_id">
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="userGrade">年级:</label>
+					<select class="userGrade form-control"id="userGrade" ng-model="selectedGrade"
+						 ng-options="grade.grade_name for grade in grades track by grade.grade_id"
+						 ng-change="getClassList(selectedGrade.grade_id)">
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="userClass">班级:</label>
+					<select class="userClass form-control" id="userClass" ng-model="selectedClass"
+						ng-options="class.class_name for class in classes track by class.class_id">
 					</select>
 				</div>
 			</div>
+			
+			<!-- test -->
 			
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
@@ -150,8 +178,14 @@
 				</button>
 			</div>
 		</div><!-- /.modal-content -->
-	</div>
-</div><!-- /.modal -->
+		
+	</div><!-- /.modal -->
+</div>
+
+
+	
+
+
 
 </body>
 </html>

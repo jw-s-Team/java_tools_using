@@ -17,28 +17,33 @@ var userColumns=[
 		          },{
 		        	  field:'userId',
 		        	  title:'用户ID',
-		        	  align:'center',
+		        	  align:'center'
 		          },{
 		        	  field:'userName',
 		        	  title:'用户名称',
 		        	  align:'center',
+		        	  editable:{
+		        		  type: 'text'
+		        	  }
 		          },{
 		        	  field:'roleName',
 		        	  title:'角色列表',
-		        	  align:'center',
+		        	  align:'center'
 		          },{
 		        	  field:'className',
 		        	  title:'班级',
-		        	  align:'center',
+		        	  align:'center'
 		          },{
 		        	  field:'lastModifyTime',
 		        	  title:'最近修改时间',
-		        	  align:'center',
+		        	  align:'center'
 		          },{
 		        	  field:'operation',
 		        	  title:'操作',
 		        	  align:'center',
-		        	  formatter:'operation'
+		        	  formatter:function(value,row,index){
+		        		  return operation("user",row);
+		        	  }
 		          }		          
 		];
 
@@ -69,13 +74,7 @@ classColumns=[
 	          },{
 	        	  field:'operation',
 	        	  title:'操作',
-	        	  align:'center',
-	        	  formatter:function (value,row,index){
-	        		  console.log("value:"+value);
-	        		  console.log(row);
-	        		  console.log(index);
-	        		  operation("row:"+row);
-	        	  }
+	        	  align:'center'
 	          }		          
 	];
 
@@ -190,18 +189,17 @@ function loadTable(tableColumn,url){
 	});
 }
 
-function editOne(row){
-	console.log(row);
-	
-}
 
 //根据不同的菜单进行不同的操作：如编辑用户或编辑角色
-function operation(row){
-	console.log("row=="+row);
-	var html='<input type="button" class="btn btn-primary btn-sm" value="角色"> '
-		+'<input type="button" class="btn btn-info btn-sm" value="状态"> '
-		+'<input type="button" class="btn btn-success btn-sm" value="编辑" onclick="editOne('+JSON.stringify(row)+')"> '
-		+'<input type="button" class="btn btn-danger btn-sm" value="删除">';
+function operation(type,row){	
+	row=JSON.stringify(row).replace(/\"/g,"'");
+	var html='';
+	if(type=='user'){
+		html='<input type="button" class="btn btn-primary btn-sm" value="角色"> '
+			+'<input type="button" class="btn btn-info btn-sm" value="状态"> '
+			+'<input type="button" class="btn btn-success btn-sm" value="编辑" ng-app="editUserApp" ng-controller="editUserController"id="editBtn"ng-click="editOne('+row+')"data-toggle="modal" data-target="#editUserModal"> '
+			+'<input type="button" class="btn btn-danger btn-sm" value="删除">';
+	}
 	return html;
 }
 
