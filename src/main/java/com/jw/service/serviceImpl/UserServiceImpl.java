@@ -118,6 +118,13 @@ public class UserServiceImpl implements UserService {
 	}
 
 
+	@Override
+	public int delOneUser(Long userId) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
 	
 
 

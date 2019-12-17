@@ -189,6 +189,17 @@ function loadTable(tableColumn,url){
 	});
 }
 
+var delOneUser=function (row){
+	$.ajax({
+		url:$tools.ctx+'/user/delOneUser?userId='+row.userId,
+		success:function(data){
+			if(data==200){
+				alert("删除用户成功！");
+				changeTo('user');
+			}
+		}
+	});
+}
 
 //根据不同的菜单进行不同的操作：如编辑用户或编辑角色
 function operation(type,row){	
@@ -198,7 +209,7 @@ function operation(type,row){
 		html='<input type="button" class="btn btn-primary btn-sm" value="角色"> '
 			+'<input type="button" class="btn btn-info btn-sm" value="状态"> '
 			+'<input type="button" class="btn btn-success btn-sm" value="编辑" ng-app="editUserApp" ng-controller="editUserController"id="editBtn"ng-click="editOne('+row+')"data-toggle="modal" data-target="#editUserModal"> '
-			+'<input type="button" class="btn btn-danger btn-sm" value="删除">';
+			+'<input type="button" class="btn btn-danger btn-sm" value="删除" onclick="delOneUser('+row+')">';
 	}
 	return html;
 }

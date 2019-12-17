@@ -17,4 +17,6 @@ public interface UserService {
 	public String addOneUser(String userName, String password, String remark, Long roleId,Long classId);
 
 	public Long newOneUser(String userName, String password, String remark);
+
+	public int delOneUser(Long userId);
 }
