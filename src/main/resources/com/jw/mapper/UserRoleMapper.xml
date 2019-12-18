@@ -12,5 +12,9 @@
 	    	values(#{userId},#{roleId},#{createTime},#{lastModifyTime})
     </insert>
 
+   <delete id="delOneUserRole" parameterType="long">
+   	delete from tb_user_role
+   		where  user_role_id=#{userRoleId}
+   </delete>
    
 </mapper>

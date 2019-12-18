@@ -27,4 +27,12 @@ public class UserRoleServiceImpl implements UserRoleService {
 		return userRoleDao.newOneUserRole(userRole);
 	}
 
+
+
+	@Override
+	public void delOneUserRole(Long userRoleId) {
+		userRoleDao.delOneUserRole(userRoleId);
+		
+	}
+
 }

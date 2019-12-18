@@ -16,4 +16,6 @@ public interface UserDao {
 	public List<VwUserRole> getUserList();
 	
 	public User getUserById(Long userId);
+
+	public int delOneUser(Long userId);
 }

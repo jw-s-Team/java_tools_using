@@ -4,7 +4,6 @@ addUserApp.controller('addUserController', function($scope,$http) {
 	method:'GET',
 	url:$tools.ctx+'/role/getRoles'
 	}).success(function(data){
-		console.log(data);
 		$scope.roles=data;
 		$scope.selectedRole = $scope.roles[0];
 	});
@@ -22,17 +21,17 @@ addUserApp.controller('addUserController', function($scope,$http) {
 	$scope.classes=[];
 	$scope.selectedClass={};
 	$scope.getClassList=function (x){
-		console.log(x);
 		$http({
 			method:'POST',
 			url:$tools.ctx+'/class/getUserClass?gradeId='+x
 		}).success(function(data){
 			$scope.classes=data;
 			$scope.selectedClass=$scope.classes[0];
-			console.log($scope.selectedClass);
 		});
 	}
 
+
+	$scope.test="122";
 	$scope.getClassList(1);
 
 
@@ -40,12 +39,13 @@ addUserApp.controller('addUserController', function($scope,$http) {
 
 var editUserApp=angular.module('editUserApp',[]);
 editUserApp.controller('editUserController',function($scope,$http){
-	$scope.test="123556";
-	$scope.editRow="";
+	$scope.userName="123";
 	$scope.editOne=function(row){
 		$scope.editRow=row;
-		console.log($scope.editRow);
-		
-	}
+		$scope.userName=$scope.editRow.userName;
+		console.log($scope.userName);	
+		$scope.$apply();
+	}	
+	console.log($scope.userName);
 });
 angular.bootstrap(document.getElementById("editUserModal"), ['editUserApp']);

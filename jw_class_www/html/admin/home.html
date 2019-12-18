@@ -130,46 +130,23 @@
 					&times;
 				</button>
 				<h4 class="modal-title" id="myModalLabel">
-					{{test}}
-				</h4>
-			</div>
-			<div class="modal-body">
-				在这里添加一些文本
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
-				</button>
-				<button type="button" class="btn btn-primary">
-					提交更改
-				</button>
-			</div>
-		</div><!-- /.modal-content -->
-	</div><!-- /.modal -->
-	
-	<!-- <div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-					&times;
-				</button>
-				<h4 class="modal-title" id="editUserModal">
-					添加用户{{test}}
+					编辑用户
 				</h4>
 			</div>
 			<div class="modal-body">
 				<div class="form-group">
-					<label for="user1">名称:</label>
-					<input type="text" class="form-control" id="user1" placeholder="请输入名称"/>
-					<span class="require userNameReq">请输入用户名称</span>
+					<label for="edit-userName">名称:</label>
+					<input type="text" class="form-control" id="edit-userName" ng-model="userName"/>
+					<span class="require userNameReq">请输入用户名称{{userName}}</span>
 				</div>
 				<div class="form-group">
-					<label for="password">密码:</label>
-					<input type="text" class="form-control" id="password" placeholder="请输入密码"/>
-					<span class="require passwordReq">请输入用户密码</span>
+					<label for="edit-password">密码:</label>
+					<input type="text" class="form-control" id="edit-password"/>
+					<span class="require userNameReq">请输入用户密码</span>
 				</div>
 				<div class="form-group">
-					<label for="remark">备注:</label>
-					<input type="text" class="form-control" id="remark" placeholder="请输入备注"/>
+					<label for="edit-remark">备注:</label>
+					<input type="text" class="form-control" id="edit-remark"/>
 				</div>
 				<div class="form-group">
 					<label for="roleName">角色:</label>
@@ -191,19 +168,16 @@
 					</select>
 				</div>
 			</div>
-			
-			test
-			
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
 				</button>
-				<button type="submit" class="btn btn-primary" onclick="addUser()">
+				<button type="button" class="btn btn-primary">
 					确定
 				</button>
 			</div>
-		</div>/.modal-content
-		
-	</div> --><!-- /.modal -->
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+	
 </div>
 
 

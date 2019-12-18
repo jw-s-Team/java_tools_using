@@ -191,12 +191,15 @@ function loadTable(tableColumn,url){
 
 var delOneUser=function (row){
 	$.ajax({
-		url:$tools.ctx+'/user/delOneUser?userId='+row.userId,
+		url:$tools.ctx+'/user/delOneUser?userId='+row.userId+'&classId='+row.classId+'&userRoleId='+row.userRoleId,
 		success:function(data){
-			if(data==200){
+			if(data==1){
 				alert("删除用户成功！");
 				changeTo('user');
 			}
+		},
+		error:function(e){
+			alert("error:"+e);
 		}
 	});
 }

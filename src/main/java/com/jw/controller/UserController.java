@@ -1,7 +1,10 @@
 package com.jw.controller;
 
 import com.jw.pojo.User;
+import com.jw.pojo.UserRole;
 import com.jw.pojo.VwUserRole;
+import com.jw.service.UserClassService;
+import com.jw.service.UserRoleService;
 import com.jw.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +21,10 @@ import java.util.Map;
 public class UserController {
 	@Autowired
 	UserService userService;
+	@Autowired
+	UserClassService userClassService;
+	@Autowired
+	UserRoleService userRoleService;
 	
 	@RequestMapping(value="/login")
     public String login(String userName, String password,HttpServletRequest request) {
@@ -56,6 +63,14 @@ public class UserController {
 	}
 	
 	
+    @RequestMapping(value="/delOneUser")
+    @ResponseBody
+    public int delOneUser(Long userId,Long classId,Long userRoleId){
+    	int status=userService.delOneUser(userId);
+    	userClassService.delOneUserClass(userId,classId);
+    	userRoleService.delOneUserRole(userRoleId);
+    	return status;
+    }
 	
 	
 		

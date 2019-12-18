@@ -120,8 +120,8 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public int delOneUser(Long userId) {
-		// TODO Auto-generated method stub
-		return 0;
+		//删除用户，删除用户班级关联数据，用户角色关联数据
+		return userDao.delOneUser(userId);
 	}
 
 

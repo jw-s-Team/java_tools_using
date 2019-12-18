@@ -6,4 +6,9 @@
 			(user_id,class_id,create_time,last_modify_time)
 			values(#{userId},#{classId},#{createTime},#{lastModifyTime})
 	</insert>
+	
+	<delete id="delOneUserClass" parameterType="java.util.Map">
+		delete from tb_class_user 
+			where user_id=#{userId} and class_id=#{classId}
+	</delete>
 </mapper>
