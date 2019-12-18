@@ -128,31 +128,48 @@ function changeTo(type,obj){
 	if(obj){
 		$(".menuClass").removeClass("active");
 		$("#addBtn").attr('data-target','');
+		$("#pathDel").attr('onclick','');
 	}
 	if(type=='user'){
 		$(obj).addClass("active");
 		$("#addBtn").attr('data-target','#addUserModal');
+		$("#pathDel").attr('onclick','pathDelUser()');
 		$('#admin-table').bootstrapTable('destroy');
 		loadTable(userColumns,'/user/getUserList');
 	}else if(type=='class'){
 		$(obj).addClass("active");
 		$("#addBtn").attr('data-target','#addClassModal');
+		$("#pathDel").attr('onclick','pathDelClass()');
 		$('#admin-table').bootstrapTable('destroy');
 		loadTable(classColumns,'/class/getClassList');
 	}else if(type=='role'){
 		$(obj).addClass("active");
 		$("#addBtn").attr('data-target','#addRoleModal');
+		$("#pathDel").attr('onclick','pathDelRole()');
 		$('#admin-table').bootstrapTable('destroy');
 		loadTable(roleColumns,'/user/getUserList');
 	}else if(type='permission'){
 		$(obj).addClass("active");
 		$("#addBtn").attr('data-target','#addPermissionModal');
+		$("#pathDel").attr('onclick','pathDelPermission()');
 		$('#admin-table').bootstrapTable('destroy');
 		loadTable(roleColumns,'/user/getUserList');
 	}
 	
 }
 
+function pathDelUser(){
+	var rows=$('#admin-table').bootstrapTable('getSelections');
+	delUserIds=[];
+	if(rows.length==0){
+		alert("请选择删除行");
+	}else{
+		for(var i=0;i<row.length;i++){
+			delIds.push(row.userId);
+		}
+	}
+	console.log(rows.length);
+}
 
 function loadTable(tableColumn,url){	
 	$("#admin-table").bootstrapTable({
@@ -209,10 +226,12 @@ function operation(type,row){
 	row=JSON.stringify(row).replace(/\"/g,"'");
 	var html='';
 	if(type=='user'){
-		html='<input type="button" class="btn btn-primary btn-sm" value="角色"> '
+		html='<div ng-app="editUserApp" ng-controller="editUserController">'
+			+'<input type="button" class="btn btn-primary btn-sm" value="角色"> '
 			+'<input type="button" class="btn btn-info btn-sm" value="状态"> '
-			+'<input type="button" class="btn btn-success btn-sm" value="编辑" ng-app="editUserApp" ng-controller="editUserController"id="editBtn"ng-click="editOne('+row+')"data-toggle="modal" data-target="#editUserModal"> '
-			+'<input type="button" class="btn btn-danger btn-sm" value="删除" onclick="delOneUser('+row+')">';
+			+'<input type="button" class="btn btn-success btn-sm" value="编辑" id="editBtn"ng-click="editOne('+row+')"data-toggle="modal" data-target="#editUserModal"> '
+			+'<input type="button" class="btn btn-danger btn-sm" value="删除" onclick="delOneUser('+row+')">'
+			+'</div>';
 	}
 	return html;
 }

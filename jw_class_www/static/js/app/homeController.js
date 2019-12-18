@@ -42,9 +42,8 @@ editUserApp.controller('editUserController',function($scope,$http){
 	$scope.userName="123";
 	$scope.editOne=function(row){
 		$scope.editRow=row;
-		$scope.userName=$scope.editRow.userName;
+		$scope.userName=row.userName;
 		console.log($scope.userName);	
-		$scope.$apply();
 	}	
 	console.log($scope.userName);
 });
